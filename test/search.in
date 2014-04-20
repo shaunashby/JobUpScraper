@@ -1,0 +1,18 @@
+
+&cantons=GE1,GE2,GE3,VD1,GE&employment=PERMANENT,LIMITED,FREELANCE&companytypes=2&jobmailerid=276463#1/972201
+&cantons=GE1,GE2,GE3,VD1,GE&keywords=Ruby/Perl/Java/JavaScript/Python/Developer/developpeur/C%2B%2B&employment=PERMANENT,LIMITED,FREELANCE&companytypes=0&jobmailerid=354348#1/972183
+&cantons=GE1,GE2,GE3,VD1,GE&keywords=Java&employment=PERMANENT,LIMITED,FREELANCE&companytypes=0&jobmailerid=354350#1/972183
+&cantons=GE1,GE2,GE3,VD1,GE&employment=PERMANENT,LIMITED,FREELANCE&companytypes=0&jobmailerid=354344#1/972189
+&cantons=GE1,GE2,GE3,VD1,GE&keywords=UNIX/Linux/Unix/linux/system%2Badmin/monitoring/puppet/nagios&employment=PERMANENT,LIMITED,FREELANCE&companytypes=0&jobmailerid=354346#1/972015
+
+
+
+# Base URL for getting job lists:
+base_url=http://www.jobup.ch/b2c/USR_joblist.asp?cmd=showresults
+
+# JobMailer sub-categories:
+&subcategories=,147,199,13,194,197,42,71,195,1,72,198,193,88,196,
+&subcategories=,147,199,13,194,197,42,71,195,1,72,198,193,88,196,
+&subcategories=,147,199,13,194,197,42,71,195,1,72,198,193,88,196,
+&subcategories=,199,13,194,197,42,71,195,1,72,198,193,88,196,
+&subcategories=,147,199,13,194,197,42,71,195,1,72,198,193,88,196,
