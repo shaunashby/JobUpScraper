@@ -4,7 +4,7 @@
 #____________________________________________________________________
 #
 # Author: Shaun Ashby <shaun@ashby.ch>
-# Created: 2014-04-09 23:47:33+0200 (Time-stamp: <2014-04-11 23:56:57 sashby>)
+# Created: 2014-04-09 23:47:33+0200
 # Revision: $Id$
 # Description: Module to collect together scraper classes.
 #
