@@ -19,8 +19,14 @@ module JobUp
         @cantons=CANTONS.join(",")
       end
 
-      def build_query_string
-        return @query_string
+      def query_string
+        return sprintf("&subcategories=%s&cantons=%s",@subcategories,@cantons)
+      end
+
+      private
+
+      def keywords
+        return KEYWORDS.join("/")
       end
 
     end
