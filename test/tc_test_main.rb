@@ -32,7 +32,7 @@ class TestJobUpMain < MiniTest::Unit::TestCase
     # No action
   end
 
-  def test_main
+  def test_main_class
     assert_equal("#{@ju.class}","JobUpMain")
   end
 
