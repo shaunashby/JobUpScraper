@@ -15,7 +15,8 @@ module JobUp
     class Criteria
       def initialize()
         @options ||= {}
-        @query_string = "a/b/c/d"
+        @subcategories=SUBCATEGORIES.join(",")
+        @cantons=CANTONS.join(",")
       end
 
       def build_query_string
