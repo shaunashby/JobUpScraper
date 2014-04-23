@@ -26,6 +26,7 @@ end
 class TestJobUpMain < MiniTest::Unit::TestCase
   def setup
     @ju = JobUpMain.new
+    @jm = JobUp::JobMailer::Criteria.new
   end
 
   def teardown
@@ -34,6 +35,11 @@ class TestJobUpMain < MiniTest::Unit::TestCase
 
   def test_main_class
     assert_equal("#{@ju.class}","JobUpMain")
+  end
+
+  def test_jobmailer_criteria_sub_query_string
+    jmqs = @jm.query_string()
+    assert_equal("#{jmqs}","&subcategories=147,199,13,194,197,42,71,195,1,72,198,193,88,196&cantons=GE1,GE2,GE3,VD1,GE")
   end
 
 end
