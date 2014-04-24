@@ -1,3 +1,5 @@
+require 'cgi'
+
 module JobUp
   VERSION='0.0.1'
 
@@ -16,12 +18,17 @@ module JobUp
     class Criteria
       def initialize()
         @options ||= {}
+        @url=nil
         @subcategories=SUBCATEGORIES.join(",")
         @cantons=CANTONS.join(",")
       end
 
       def query_string
         return sprintf("&subcategories=%s&cantons=%s",@subcategories,@cantons)
+      end
+
+      def to_url
+        return CGI.escape(@url)
       end
 
       private
