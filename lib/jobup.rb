@@ -1,3 +1,17 @@
+#!/usr/bin/env ruby
+#____________________________________________________________________
+# File: jobup.rb
+#____________________________________________________________________
+#
+# Author: Shaun Ashby <shaun@ashby.ch>
+# Created: 2014-04-24 11:18:12+0200
+# Revision: $Id$
+# Description: JobUp module entrypoint.
+#
+# Copyright (C) 2014 Shaun Ashby
+#
+#
+#--------------------------------------------------------------------
 require 'cgi'
 
 module JobUp
