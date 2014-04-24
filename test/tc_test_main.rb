@@ -37,9 +37,9 @@ class TestJobUpMain < MiniTest::Unit::TestCase
     assert_equal("#{@ju.class}","JobUpMain")
   end
 
-  def test_jobmailer_criteria_sub_query_string
-    jmqs = @jm.query_string()
-    assert_equal("#{jmqs}","&subcategories=147,199,13,194,197,42,71,195,1,72,198,193,88,196&cantons=GE1,GE2,GE3,VD1,GE")
+  def test_jobmailer_criteria_query_uri
+    jmqu = @jm.query_uri
+    assert_equal("#{jmqu}","&subcategories=147,199,13,194,197,42,71,195,1,72,198,193,88,196&cantons=GE1,GE2,GE3,VD1,GE&keywords=UNIX%2FLinux%2FUnix%2Flinux%2Fsystem%2Badmin%2Fmonitoring%2Fpuppet%2Fnagios&employment=PERMANENT,LIMITED,FREELANCE&companytypes=0")
   end
 
 end
