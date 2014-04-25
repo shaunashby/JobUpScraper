@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #____________________________________________________________________
-# File: navigation.rb
+# File: navigator.rb
 #____________________________________________________________________
 #
 # Author: Shaun Ashby <shaun@ashby.ch>
@@ -16,19 +16,15 @@
 module JobUp
   module Page
 
-    class PageError
-
-    end
-
-    class Navigation
+    class Navigator
 
       def initialize(doc)
         begin
           if doc.class === 'Nokogiri::HTML::Document'
             
           end
-        rescue
-
+        rescue => err
+          $stderr.print("ERROR: No Nokogiri document received.")
         end
       end
 
