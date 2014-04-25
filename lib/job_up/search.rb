@@ -15,7 +15,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-require 'jobup/page/navigation'
+require 'job_up/page/navigator'
 
 module JobUp
 
