@@ -39,7 +39,4 @@ class TestJobUpPageNavigator < MiniTest::Unit::TestCase
     assert_equal(@page_nav.pagecount, 10)
   end
 
-  def test_page_navigator_post_count
-  end
-
 end
