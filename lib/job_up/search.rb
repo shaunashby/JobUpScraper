@@ -19,7 +19,7 @@ require 'job_up/page/navigator'
 require 'job_up/page/request'
 
 module JobUp
-
+  # FIXME: move constants to separate module
   SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_XPATH      ='//*[@id="search_content"]/div/table'
   SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_BODY_XPATH ='//*[@id="search_content"]/div/table/tbody'
 
@@ -37,10 +37,10 @@ module JobUp
 
     end
 
-    def go()
+    def go() # FIXME: move this to Page class
       # Number of posts found:
       n_posts_result_text = @doc.xpath(SEARCH_LABEL_RESULT_COUNT_XPATH).text
-      # Strip out the first element (which is numerical):
+      # Strip out the first element (which is the only numerical one):
       n_posts = n_posts_result_text.split(/ /)[0]
     end
 
