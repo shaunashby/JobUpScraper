@@ -16,6 +16,7 @@ require 'nokogiri'
 require 'open-uri'
 
 require 'job_up/page/navigator'
+require 'job_up/page/request'
 
 module JobUp
 
@@ -28,8 +29,9 @@ module JobUp
 
   class Search
     # Something for simply running a search:
-    def self.run(url)
-    end
+    def self.run(query_params)
+      request = Page::Request.new(SEARCH_JOBUP_BASE_URL)
+      page = request.getPage(query_params)
 
     def initialize(url)
       @doc = nil
