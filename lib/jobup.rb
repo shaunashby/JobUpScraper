@@ -12,7 +12,6 @@
 #
 #
 #--------------------------------------------------------------------
-require 'cgi'
 
 module JobUp
   VERSION='0.0.1'
@@ -30,6 +29,8 @@ module JobUp
     COMPANYTYPES = [  COMPANYTYPES_ALL, COMPANYTYPES_AGENCIES_ONLY, COMPANYTYPES_ENTERPRISE_ONLY ]
 
     class Criteria
+      require 'cgi'
+
       def initialize()
         @subcategories = SUBCATEGORIES.join(",")
         @cantons = CANTONS.join(",")
