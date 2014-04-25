@@ -48,15 +48,6 @@ module JobUp
 
     private
     def navigation
-      # Since there will be 2 blocks (for the top and bottom nav bars), we
-      # select just the first one:
-      nav = @doc.xpath(SEARCH_NAV_BLOCK_NAV_LAST)[0]
-      # Decode the URI (from the href attribute value):
-      href_str = URI.decode(nav.attribute("href").text)
-      # Extract the param components of the URI:
-      params=CGI.parse(href_str)
-      # The number of pages equals the last page number:
-      n_pages = params['p'][0].to_i
     end
   end
 
