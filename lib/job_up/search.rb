@@ -27,6 +27,10 @@ module JobUp
   SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]/li/div'
 
   class Search
+    # Something for simply running a search:
+    def self.run(url)
+    end
+
     def initialize(url)
       @doc = nil
 
