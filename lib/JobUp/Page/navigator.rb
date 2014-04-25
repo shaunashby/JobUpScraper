@@ -19,14 +19,21 @@ module JobUp
     class Navigator
 
       def initialize(doc)
+        @pagecount=nil
+        @job_uri=Array.new
+
         begin
-          if doc.class === 'Nokogiri::HTML::Document'
-            
+          if doc.instance_of?(Nokogiri::HTML::Document)
+
+          else
+            raise "Got some other type of document: #{doc.class}"
           end
         rescue => err
-          $stderr.print("ERROR: No Nokogiri document received.")
+          $stderr.write("ERROR: No Nokogiri document received.")
         end
       end
+
+      attr_reader :pagecount
 
     end
   end
