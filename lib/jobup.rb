@@ -51,4 +51,8 @@ module JobUp
     end
   end
 
+  module Configuration
+    CONFIG_FILE='jobsearch.yaml'
+  end
+
 end
