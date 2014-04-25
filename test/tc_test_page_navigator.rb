@@ -16,7 +16,7 @@ require 'minitest/autorun'
 require 'nokogiri'
 require 'open-uri'
 
-require 'jobup/page/navigator'
+require 'job_up/page/navigator'
 
 class TestJobUpPageNavigator < MiniTest::Unit::TestCase
 

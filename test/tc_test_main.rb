@@ -14,7 +14,7 @@
 #--------------------------------------------------------------------
 require 'minitest/autorun'
 
-require 'jobup'
+require 'job_up'
 
 class JobUpMain
   def initialize
