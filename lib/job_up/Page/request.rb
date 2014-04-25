@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+#____________________________________________________________________
+# File: request.rb
+#____________________________________________________________________
+#
+# Author: Shaun Ashby <shaun@ashby.ch>
+# Created: 2014-04-26 00:37:35+0200
+# Revision: $Id$
+# Description: Class to manage a request for a URL and permit access 
+#              to the contained elements.
+#
+# Copyright (C) 2014 Shaun Ashby
+#
+#
+#--------------------------------------------------------------------
+
+module JobUp
+  module Page
+    class Request
+      def initialize(base_url)
+        @base_url ||= ""
+      end
+
+      def getPage(search_url)
+        url = base_url + "/" + search_url
+
+        begin
+          @doc = Nokogiri::HTML(open(url))
+        rescue => err
+          $stderr.print("Unable to open URL #{url} - #{err}.")
+        end
+      end
+    end
+  end
+end
