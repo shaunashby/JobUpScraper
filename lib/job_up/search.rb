@@ -27,6 +27,8 @@ module JobUp
   SEARCH_NAV_BLOCK_NAV_LAST       = '//*[@id="nav_last"]'
   SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]/li/div'
 
+  SEARCH_JOBUP_BASE_URL = 'http://www.jobup.ch/search/joblist.asp?cmd=showresults'
+
   class Search
     # Something for simply running a search:
     def self.run(query_params)
