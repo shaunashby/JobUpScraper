@@ -35,14 +35,6 @@ module JobUp
       request = Page::Request.new(SEARCH_JOBUP_BASE_URL)
       page = request.getPage(query_params)
 
-    def initialize(url)
-      @doc = nil
-
-      begin
-        @doc = Nokogiri::HTML(open(@url))
-      rescue => err
-        $stderr.print "ERROR: Unable to open URL #{url} - #{err}"
-      end
     end
 
     def go()
@@ -52,11 +44,6 @@ module JobUp
       n_posts = n_posts_result_text.split(/ /)[0]
     end
 
-    attr_reader :doc
-
-    private
-    def navigation
-    end
   end
 
 end
