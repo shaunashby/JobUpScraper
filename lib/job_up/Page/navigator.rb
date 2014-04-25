@@ -13,10 +13,10 @@
 #
 #--------------------------------------------------------------------
 
+require 'job_up/page_error'
+
 module JobUp
   module Page
-
-    class PageError < Exception; end
 
     class Navigator
 
