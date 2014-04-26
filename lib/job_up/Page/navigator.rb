@@ -24,24 +24,25 @@ module JobUp
       require 'open-uri'
 
       def initialize(doc)
-        @nav_block
+        @nav_block=nil
         @pagecount=nil
         @job_uri=Array.new
 
         begin
           if doc.instance_of?(Nokogiri::HTML::Document)
-            # Extract the navigation block:
-            nav_block_nav_last='//*[@id="nav_last"]'
-
-            # Since there will be 2 blocks (for the top and bottom nav bars), we
-            # select just the top one (the first element):
-            @nav_block = doc.xpath(nav_block_nav_last)[0]
-
+            # Extract the navigation block which contains the arrows to move forward,
+            # backwards or jump to the last page. Select the first element returned
+            # (for the top nav):
+            @nav_block=doc.xpath('//*[@id="navigator"]')[0]
+            # Extract the nav_last <a> tag which holds the page number reference.
+            # Select the first nav_last ID in the nav block:
+            @nav_block_nav_last = doc.xpath('//*[@id="nav_last"]')[0]
             # Check to see if we actually have the nav block. If it's nil then
             # there were fewer pages so no nav bar wrapping required:
-            if @nav_block.nil?
-              # Proceed to redo the nav block search:
-
+            if @nav_block_nav_last.nil?
+              # Proceed to redo the nav block search
+              # Count the number of C_URL <a> tags in the navigation block, then 
+              # add 1 to get the page count (we start the search on page 1)
             end
             # Decode the URI (from the href value):
             href_str = URI.decode(@nav_block.attribute("href").text)
