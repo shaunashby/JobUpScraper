@@ -23,6 +23,7 @@ module JobUp
   SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_XPATH      ='//*[@id="search_content"]/div/table'
   SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_BODY_XPATH ='//*[@id="search_content"]/div/table/tbody'
 
+  SEARCH_NAV_BLOCK                = '//*[@id="navigator"]'
   SEARCH_NAV_BLOCK_NAV_LAST       = '//*[@id="nav_last"]'
   SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]/li/div'
 
