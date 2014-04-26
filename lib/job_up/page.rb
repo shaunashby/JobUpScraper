@@ -4,7 +4,7 @@
 #____________________________________________________________________
 #
 # Author: Shaun Ashby <shaun@ashby.ch>
-# Created: 2014-04-26 00:31:56+0200 (Time-stamp: <2014-04-26 00:52:10 sashby>)
+# Created: 2014-04-26 00:31:56+0200
 # Revision: $Id$
 # Description: Class to handle returned raw pages from a request.
 #
