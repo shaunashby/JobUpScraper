@@ -61,6 +61,7 @@ module JobUp
       end
 
       attr_reader :pagecount
+      attr_reader :job_uri
 
     end
   end
