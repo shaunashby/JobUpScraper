@@ -23,7 +23,6 @@ module JobUp
   SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_XPATH      ='//*[@id="search_content"]/div/table'
   SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_BODY_XPATH ='//*[@id="search_content"]/div/table/tbody'
 
-  SEARCH_LABEL_RESULT_COUNT_XPATH = '//*[@id="label_result_count"]'
   SEARCH_NAV_BLOCK_NAV_LAST       = '//*[@id="nav_last"]'
   SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]/li/div'
 
@@ -35,13 +34,6 @@ module JobUp
       request = Page::Request.new(SEARCH_JOBUP_BASE_URL)
       page = request.getPage(query_params)
 
-    end
-
-    def go() # FIXME: move this to Page class
-      # Number of posts found:
-      n_posts_result_text = @doc.xpath(SEARCH_LABEL_RESULT_COUNT_XPATH).text
-      # Strip out the first element (which is the only numerical one):
-      n_posts = n_posts_result_text.split(/ /)[0]
     end
 
   end
