@@ -37,15 +37,15 @@ module JobUp
         @keywords = CGI.escape(KEYWORDS.join("/"))
         @employment = EMPLOYMENT.join(",")
 
-        @query_uri = sprintf("&subcategories=%s&cantons=%s&keywords=%s&employment=%s&companytypes=%s",
-                             @subcategories,
-                             @cantons,
-                             @keywords,
-                             @employment,
-                             COMPANYTYPES_ALL)
+        @query_params = sprintf("&subcategories=%s&cantons=%s&keywords=%s&employment=%s&companytypes=%s",
+                                @subcategories,
+                                @cantons,
+                                @keywords,
+                                @employment,
+                                COMPANYTYPES_ALL)
       end
 
-      attr_reader :query_uri
+      attr_reader :query_params
       attr_reader :keywords
 
     end
