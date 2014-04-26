@@ -45,7 +45,7 @@ module JobUp
               # add 1 to get the page count (we start the search on page 1)
             end
             # Decode the URI (from the href value):
-            href_str = URI.decode(@nav_block.attribute("href").text)
+            href_str = URI.decode(@nav_block_nav_last.attribute("href").text)
 
             # Extract the param components of the URI and find the param "p"
             # to get the page number. Then convert the string to integer:
