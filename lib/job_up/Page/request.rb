@@ -14,6 +14,8 @@
 #
 #--------------------------------------------------------------------
 
+require 'job_up/page'
+
 module JobUp
   module Page
     class Request
@@ -26,6 +28,10 @@ module JobUp
 
         begin
           @doc = Nokogiri::HTML(open(url))
+
+          page = Page.new(@doc)
+          page_nav = page.getNav()
+
         rescue => err
           $stderr.print("Unable to open URL #{url} - #{err}.")
         end
