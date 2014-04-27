@@ -23,6 +23,7 @@ class TestJobUpPageRequest < MiniTest::Unit::TestCase
   def setup
     @base_url = TEST_FILE_FOR_URL
     @query_params = "" # Empty query
+    @req = JobUp::Page::Request.new(@base_url)
   end
 
   def teardown
