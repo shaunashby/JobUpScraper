@@ -27,8 +27,8 @@ module JobUp
         url = @base_url + query_params
 
         begin
-          @doc = Nokogiri::HTML(open(url))
-          page = JobUp::Page::Content.new(@doc)
+          doc = Nokogiri::HTML(open(url))
+          page = JobUp::Page::Content.new(doc)
           page_nav = page.getNav()
           return page
         rescue => err
