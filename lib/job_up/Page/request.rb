@@ -32,6 +32,7 @@ module JobUp
           page = JobUp::Page::Content.new(@doc)
           page_nav = page.getNav()
 
+          return page
         rescue => err
           $stderr.print("Unable to open URL #{url} - #{err}.")
         end
