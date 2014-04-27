@@ -20,6 +20,9 @@ module JobUp
 
     class Navigator
 
+      SEARCH_NAV_BLOCK                = '//*[@id="navigator"]'
+      SEARCH_NAV_BLOCK_NAV_LAST       = '//*[@id="nav_last"]'
+
       require 'cgi'
       require 'open-uri'
 
