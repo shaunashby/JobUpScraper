@@ -20,7 +20,7 @@ module JobUp
   module Page
     class Request
       def initialize(base_url)
-        @base_url ||= ""
+        @base_url = base_url
       end
 
       def getPageContent(query_params)
