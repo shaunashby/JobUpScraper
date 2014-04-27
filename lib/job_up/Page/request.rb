@@ -23,8 +23,8 @@ module JobUp
         @base_url ||= ""
       end
 
-      def getPage(query_params)
-        url = base_url + "/" + query_params
+      def getPageContent(query_params)
+        url = @base_url + query_params
 
         begin
           @doc = Nokogiri::HTML(open(url))
