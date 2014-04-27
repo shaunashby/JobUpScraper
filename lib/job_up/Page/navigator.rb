@@ -36,10 +36,10 @@ module JobUp
             # Extract the navigation block which contains the arrows to move forward,
             # backwards or jump to the last page. Select the first element returned
             # (for the top nav):
-            @nav_block=doc.xpath('//*[@id="navigator"]')[0]
+            @nav_block=doc.xpath(SEARCH_NAV_BLOCK)[0]
             # Extract the nav_last <a> tag which holds the page number reference.
             # Select the first nav_last ID in the nav block:
-            @nav_block_nav_last = doc.xpath('//*[@id="nav_last"]')[0]
+            @nav_block_nav_last = doc.xpath(SEARCH_NAV_BLOCK_NAV_LAST)[0]
             # Check to see if we actually have the nav block. If it's nil then
             # there were fewer pages so no nav bar wrapping required:
             if @nav_block_nav_last.nil?
