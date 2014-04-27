@@ -46,15 +46,17 @@ module JobUp
               # Proceed to redo the nav block search
               # Count the number of C_URL <a> tags in the navigation block, then 
               # add 1 to get the page count (we start the search on page 1)
+
+            else
+              # Decode the URI (from the href value):
+              href_str = URI.decode(@nav_block_nav_last.attribute("href").text)
+
+              # Extract the param components of the URI and find the param "p"
+              # to get the page number. Then convert the string to integer:
+              params=CGI.parse(href_str)
+
+              @pagecount = params['p'][0].to_i
             end
-            # Decode the URI (from the href value):
-            href_str = URI.decode(@nav_block_nav_last.attribute("href").text)
-
-            # Extract the param components of the URI and find the param "p"
-            # to get the page number. Then convert the string to integer:
-            params=CGI.parse(href_str)
-
-            @pagecount = params['p'][0].to_i
           else
             raise PageError, "Got unexpected document type: #{doc.class}"
           end
