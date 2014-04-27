@@ -31,8 +31,7 @@ class TestJobUpPageRequest < MiniTest::Unit::TestCase
   end
 
   def test_page_request_initialize
-    req = JobUp::Page::Request.new(@base_url)
-    assert_equal("#{req.class}","JobUp::Page::Request")
+    assert_equal("#{@req.class}","JobUp::Page::Request")
   end
 
 end
