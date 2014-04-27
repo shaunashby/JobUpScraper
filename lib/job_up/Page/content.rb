@@ -28,8 +28,9 @@ module JobUp
       def postcount()
         # Number of posts found:
         n_posts_result_text = @doc.xpath(SEARCH_LABEL_RESULT_COUNT_XPATH).text
-        # Strip out the first element (which is the only numerical one):
-        @postcount = n_posts_result_text.split(/ /)[0]
+        # Strip out the first element (which is the only numerical one) and
+        # make sure that it's returned as an integer:
+        @postcount = n_posts_result_text.split(/ /)[0].to_i
       end
 
       def getNav
