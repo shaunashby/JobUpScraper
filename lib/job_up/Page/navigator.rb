@@ -61,7 +61,7 @@ module JobUp
             raise PageError, "Got unexpected document type: #{doc.class}"
           end
         rescue => err
-          $stderr.print("ERROR: No Nokogiri::HTML::Document object received. Unable to parse.")
+          $stderr.print("ERROR: No Nokogiri::HTML::Document object received. Unable to parse - #{err}")
         end
       end
 
