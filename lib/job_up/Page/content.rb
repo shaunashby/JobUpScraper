@@ -29,6 +29,10 @@ module JobUp
         # Strip out the first element (which is the only numerical one):
         @postcount = n_posts_result_text.split(/ /)[0]
       end
+
+      def getNav
+      end
+
     end
   end
 end
