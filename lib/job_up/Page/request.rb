@@ -14,7 +14,7 @@
 #
 #--------------------------------------------------------------------
 
-require 'job_up/page'
+require 'job_up/page/content'
 
 module JobUp
   module Page
@@ -29,7 +29,7 @@ module JobUp
         begin
           @doc = Nokogiri::HTML(open(url))
 
-          page = Page.new(@doc)
+          page = JobUp::Page::Content.new(@doc)
           page_nav = page.getNav()
 
         rescue => err
