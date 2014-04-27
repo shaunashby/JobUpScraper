@@ -13,6 +13,8 @@
 #
 #--------------------------------------------------------------------
 
+require 'job_up/page/navigator'
+
 module JobUp
   module Page
     class Content
@@ -31,6 +33,8 @@ module JobUp
       end
 
       def getNav
+        nav = JobUp::Page::Navigator.new(@doc)
+
       end
 
     end
