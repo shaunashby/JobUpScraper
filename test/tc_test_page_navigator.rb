@@ -46,8 +46,7 @@ class TestJobUpPageNavigator < MiniTest::Unit::TestCase
   end
 
   def test_page_navigator_no_nav_last
-    pass
-#    assert_equal(@page_nav_no_nav_last.pagecount, 10)
+    assert_equal(@page_nav_no_nav_last.pagecount, 4)
   end
 
 end
