@@ -13,6 +13,8 @@
 #
 #
 #--------------------------------------------------------------------
+require 'nokogiri'
+require 'open-uri'
 
 require 'job_up/page/content'
 
@@ -21,9 +23,13 @@ module JobUp
     class Request
       def initialize(base_url)
         @base_url = base_url
+        @main_doc = nil
+        @subpage_urls = Array.new
+        @cookie = ""
       end
 
-      def getPageContent(query_params)
+      def getPageContent(query_params, pagenum = 1)
+        @pagenum = pagenum
         url = @base_url + query_params
 
         begin
