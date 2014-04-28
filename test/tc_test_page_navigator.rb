@@ -22,12 +22,15 @@ class TestJobUpPageNavigator < MiniTest::Unit::TestCase
 
   NAV_TEST_FILE=File.expand_path(File.dirname(__FILE__) + '/testpage.html')
   NAV_TEST_FILE_NO_NAV_LAST=File.expand_path(File.dirname(__FILE__) + '/testpage-no-nav-last.html')
+  NAV_TEST_FILE_SINGLE_PAGE_RESULT=File.expand_path(File.dirname(__FILE__) + '/testpage-single-page-1-post.html')
 
   def setup
     @doc = Nokogiri::HTML(open(NAV_TEST_FILE))
     @doc_no_nav_last = Nokogiri::HTML(open(NAV_TEST_FILE_NO_NAV_LAST))
+    @doc_single_post = Nokogiri::HTML(open(NAV_TEST_FILE_SINGLE_PAGE_RESULT))
     @page_nav = JobUp::Page::Navigator.new(@doc)
     @page_nav_no_nav_last = JobUp::Page::Navigator.new(@doc_no_nav_last)
+    @page_single_post = JobUp::Page::Navigator.new(@doc_single_post)
   end
 
   def teardown
