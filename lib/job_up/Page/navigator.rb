@@ -30,7 +30,6 @@ module JobUp
       def initialize(doc)
         @nav_block=nil
         @pagecount=nil
-        @job_uri=Array.new
 
         begin
           if doc.instance_of?(Nokogiri::HTML::Document)
