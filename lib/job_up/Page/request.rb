@@ -34,6 +34,10 @@ module JobUp
 
         begin
           @main_doc = open(url)
+          if @main_doc.respond_to? :meta
+            @cookie = @main_doc.meta['set-cookie'].split('; ',2)[0]
+          end
+
           doc = Nokogiri::HTML(@main_doc)
           page = JobUp::Page::Content.new(doc)
           page_nav = page.getNav()
