@@ -50,9 +50,18 @@ module JobUp
             # there were fewer pages so no nav bar wrapping required:
             if @nav_block_nav_last.nil?
               # Proceed to redo the nav block search
-              # Count the number of C_URL <a> tags in the navigation block, then 
-              # add 1 to get the page count (we start the search on page 1)
-
+              # Count the number of C_LINK <a> tags in the navigation block, then
+              # get the last <a> tag to extract the page number.
+              nav_c_links = @nav_block.xpath(SEARCH_NAV_BLOCK_C_LINK)
+              # If there aren't any <a> tags with the C_LINK class then we only have
+              # one page of results (the first page returned):
+              if nav_c_links.empty?
+                @pagecount = 1
+              else
+                # Determine the page count using the last <a> tag (which has
+                # the page number of the last page as a parameter):
+                @pagecount = getPageNumFromLink(nav_c_links.last)
+              end
             else
               # Decode the URI (from the href value):
               href_str = URI.decode(@nav_block_nav_last.attribute("href").text)
