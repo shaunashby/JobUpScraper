@@ -72,7 +72,17 @@ module JobUp
       end
 
       attr_reader :pagecount
-      attr_reader :job_uri
+
+      private
+
+      def getPageNumFromLink(link)
+        # Decode the URI (from the href value) and extract the param
+        # components of the URI:
+        params=CGI.parse(  URI.decode(link.attribute("href").text) )
+        # Find the param "p" to get the page number, convert the string
+        # to integer:
+        return params['p'][0].to_i
+      end
 
     end
   end
