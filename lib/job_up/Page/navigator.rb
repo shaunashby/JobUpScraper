@@ -63,14 +63,7 @@ module JobUp
                 @pagecount = getPageNumFromLink(nav_c_links.last)
               end
             else
-              # Decode the URI (from the href value):
-              href_str = URI.decode(@nav_block_nav_last.attribute("href").text)
-
-              # Extract the param components of the URI and find the param "p"
-              # to get the page number. Then convert the string to integer:
-              params=CGI.parse(href_str)
-
-              @pagecount = params['p'][0].to_i
+              @pagecount = getPageNumFromLink(@nav_block_nav_last)
             end
           else
             raise PageError, "Unexpected document type: #{doc.class}."
