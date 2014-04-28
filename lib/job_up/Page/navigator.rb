@@ -63,10 +63,10 @@ module JobUp
               @pagecount = params['p'][0].to_i
             end
           else
-            raise PageError, "Got unexpected document type: #{doc.class}"
+            raise PageError, "Unexpected document type: #{doc.class}."
           end
         rescue => err
-          $stderr.print("ERROR: No Nokogiri::HTML::Document object received. Unable to parse - #{err}")
+          $stderr.print("ERROR: #{err}.\n")
         end
       end
 
