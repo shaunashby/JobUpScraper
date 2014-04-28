@@ -49,7 +49,7 @@ module JobUp
 
           return page
         rescue => err
-          $stderr.print("Unable to open URL #{url} - #{err}.")
+          $stderr.print("ERROR: #{err}.\n")
         end
       end
     end
