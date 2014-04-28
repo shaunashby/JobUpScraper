@@ -33,7 +33,8 @@ module JobUp
         url = @base_url + query_params
 
         begin
-          doc = Nokogiri::HTML(open(url))
+          @main_doc = open(url)
+          doc = Nokogiri::HTML(@main_doc)
           page = JobUp::Page::Content.new(doc)
           page_nav = page.getNav()
           return page
