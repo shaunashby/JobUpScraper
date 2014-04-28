@@ -37,6 +37,11 @@ module JobUp
             # backwards or jump to the last page. Select the first element returned
             # (for the top nav):
             @nav_block=doc.xpath(SEARCH_NAV_BLOCK)[0]
+            if @nav_block.nil?
+              # There was a serious problem. Barf.
+              raise NavError, "Unable to search for xpath = #{SEARCH_NAV_BLOCK}."
+            end
+
             # Extract the nav_last <a> tag which holds the page number reference.
             # Select the first nav_last ID in the nav block:
             @nav_block_nav_last = doc.xpath(SEARCH_NAV_BLOCK_NAV_LAST)[0]
