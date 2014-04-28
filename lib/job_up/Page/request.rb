@@ -41,6 +41,12 @@ module JobUp
           doc = Nokogiri::HTML(@main_doc)
           page = JobUp::Page::Content.new(doc)
           page_nav = page.getNav()
+          # From the page navigation we can build a list of sub-queries for each
+          # of the subsequent pages:
+          (2..page_nav.pagecount).each do |pnum|
+            @subpage_urls << sprintf("%s&p%d", query_params, pnum)
+          end
+
           return page
         rescue => err
           $stderr.print("Unable to open URL #{url} - #{err}.")
