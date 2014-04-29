@@ -14,6 +14,6 @@
 #--------------------------------------------------------------------
 
 module JobUp
-  class PageError < Exception; end
-  class NavError < Exception; end
+  class PageError < StandardError; end
+  class NavError < StandardError; end
 end
