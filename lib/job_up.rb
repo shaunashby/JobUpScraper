@@ -34,7 +34,7 @@ module JobUp
       def initialize()
         @subcategories = SUBCATEGORIES.join(",")
         @cantons = CANTONS.join(",")
-        @keywords = CGI.escape(KEYWORDS.join("/"))
+        @keywords = KEYWORDS.map { |k| CGI.escape(k) }.join("/")
         @employment = EMPLOYMENT.join(",")
 
         @query_params = sprintf("&subcategories=%s&cantons=%s&keywords=%s&employment=%s&companytypes=%s",
