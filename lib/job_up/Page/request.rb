@@ -41,8 +41,9 @@ module JobUp
             end
           end
 
-          doc = Nokogiri::HTML(@main_doc)
-          page = JobUp::Page::Content.new(doc)
+          page = JobUp::Page::Content.new( Nokogiri::HTML(@main_doc) )
+          npages = page.get_nav.pagecount
+
           # Save the first page:
           @pages.push(page)
           # From the page navigation we can build a list of sub-queries and retrieve
