@@ -52,12 +52,13 @@ module JobUp
             doc = Nokogiri::HTML(open(url,'Cookie' => @cookie))
             @pages << JobUp::Page::Content.new(doc)
           end
-
-          return page
         rescue => err
           $stderr.print("ERROR: #{err}.\n")
         end
       end
+
+      attr_reader :pages
+
     end
   end
 end
