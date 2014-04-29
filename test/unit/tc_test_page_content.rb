@@ -20,7 +20,7 @@ require 'job_up/page/content'
 
 class TestJobUpPageContent < MiniTest::Unit::TestCase
 
-  TEST_FILE_FOR_URL=File.expand_path(File.dirname(__FILE__) + '/testpage.html')
+  TEST_FILE_FOR_URL=File.expand_path(File.dirname(__FILE__) + '/../files/testpage.html')
 
   def setup
     @doc = Nokogiri::HTML(open(TEST_FILE_FOR_URL))

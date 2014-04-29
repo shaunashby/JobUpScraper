@@ -20,9 +20,9 @@ require 'job_up/page/navigator'
 
 class TestJobUpPageNavigator < MiniTest::Unit::TestCase
 
-  NAV_TEST_FILE=File.expand_path(File.dirname(__FILE__) + '/testpage.html')
-  NAV_TEST_FILE_NO_NAV_LAST=File.expand_path(File.dirname(__FILE__) + '/testpage-no-nav-last.html')
-  NAV_TEST_FILE_SINGLE_PAGE_RESULT=File.expand_path(File.dirname(__FILE__) + '/testpage-single-page-1-post.html')
+  NAV_TEST_FILE=File.expand_path(File.dirname(__FILE__) + '/../files/testpage.html')
+  NAV_TEST_FILE_NO_NAV_LAST=File.expand_path(File.dirname(__FILE__) + '/../files/testpage-no-nav-last.html')
+  NAV_TEST_FILE_SINGLE_PAGE_RESULT=File.expand_path(File.dirname(__FILE__) + '/../files/testpage-single-page-1-post.html')
 
   def setup
     @doc = Nokogiri::HTML(open(NAV_TEST_FILE))
