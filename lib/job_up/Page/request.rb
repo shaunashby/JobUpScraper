@@ -28,8 +28,7 @@ module JobUp
         @pages = Array.new
       end
 
-      def get_page_content(query_params, pagenum = 1)
-        @pagenum = pagenum
+      def get_page_content(query_params)
         url = @base_url + query_params
 
         begin
