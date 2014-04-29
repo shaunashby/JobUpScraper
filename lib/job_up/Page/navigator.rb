@@ -59,10 +59,10 @@ module JobUp
               else
                 # Determine the page count using the last <a> tag (which has
                 # the page number of the last page as a parameter):
-                @pagecount = getPageNumFromLink(nav_c_links.last)
+                @pagecount = get_page_num_from_link(nav_c_links.last)
               end
             else
-              @pagecount = getPageNumFromLink(@nav_block_nav_last)
+              @pagecount = get_page_num_from_link(@nav_block_nav_last)
             end
           else
             raise PageError, "Unexpected document type: #{doc.class}."
@@ -76,7 +76,7 @@ module JobUp
 
       private
 
-      def getPageNumFromLink(link)
+      def get_page_num_from_link(link)
         # Decode the URI (from the href value) and extract the param
         # components of the URI:
         params=CGI.parse(  URI.decode(link.attribute("href").text) )

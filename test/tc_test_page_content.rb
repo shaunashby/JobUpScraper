@@ -36,7 +36,7 @@ class TestJobUpPageContent < MiniTest::Unit::TestCase
   end
 
   def test_page_content_get_nav
-    nav = @page_content.getNav
+    nav = @page_content.get_nav
     assert_equal("#{nav.class}","JobUp::Page::Navigator")
   end
 

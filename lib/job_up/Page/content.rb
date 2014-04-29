@@ -33,7 +33,7 @@ module JobUp
         @postcount = n_posts_result_text.split(/ /)[0].to_i
       end
 
-      def getNav
+      def get_nav
         nav = JobUp::Page::Navigator.new(@doc)
 
       end

@@ -28,7 +28,7 @@ module JobUp
         @cookie = ""
       end
 
-      def getPageContent(query_params, pagenum = 1)
+      def get_page_content(query_params, pagenum = 1)
         @pagenum = pagenum
         url = @base_url + query_params
 
@@ -40,7 +40,7 @@ module JobUp
 
           doc = Nokogiri::HTML(@main_doc)
           page = JobUp::Page::Content.new(doc)
-          page_nav = page.getNav()
+          page_nav = page.get_nav()
           # From the page navigation we can build a list of sub-queries for each
           # of the subsequent pages:
           (2..page_nav.pagecount).each do |pnum|

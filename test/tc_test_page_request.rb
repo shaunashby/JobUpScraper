@@ -36,7 +36,7 @@ class TestJobUpPageRequest < MiniTest::Unit::TestCase
   end
 
   def test_page_request_get_page_content
-    page = @req.getPageContent(@query_params)
+    page = @req.get_page_content(@query_params)
     assert_equal("#{page.class}","JobUp::Page::Content")
   end
 

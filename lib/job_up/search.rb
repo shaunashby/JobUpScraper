@@ -33,8 +33,8 @@ module JobUp
     # Something for simply running a search:
     def self.run(query_params)
       request = Page::Request.new(SEARCH_JOBUP_BASE_URL)
-      page = request.getPage(query_params)
-
+      page = request.get_page_content(query_params)
+      printf("JobUp::Search: %d posts found\n",page.postcount)
     end
 
   end
