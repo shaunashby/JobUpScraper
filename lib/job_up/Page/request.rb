@@ -24,8 +24,8 @@ module JobUp
       def initialize(base_url)
         @base_url = base_url
         @main_doc = nil
-        @subpage_urls = Array.new
-        @cookie = ""
+        @cookie = nil
+        @pages = Array.new
       end
 
       def get_page_content(query_params, pagenum = 1)
@@ -33,18 +33,25 @@ module JobUp
         url = @base_url + query_params
 
         begin
-          @main_doc = open(url)
-          if @main_doc.respond_to? :meta
-            @cookie = @main_doc.meta['set-cookie'].split('; ',2)[0]
+          if @main_doc.nil?
+            @main_doc = open(url)
+            if @main_doc.respond_to? :meta
+              if @cookie.nil?
+                @cookie = @main_doc.meta['set-cookie'].split('; ',2)[0]
+              end
+            end
           end
 
           doc = Nokogiri::HTML(@main_doc)
           page = JobUp::Page::Content.new(doc)
-          page_nav = page.get_nav()
-          # From the page navigation we can build a list of sub-queries for each
-          # of the subsequent pages:
-          (2..page_nav.pagecount).each do |pnum|
-            @subpage_urls << sprintf("%s&p%d", query_params, pnum)
+          # Save the first page:
+          @pages.push(page)
+          # From the page navigation we can build a list of sub-queries and retrieve
+          # each of the subsequent pages:
+          (2..page.get_nav().pagecount).each do |pnum|
+            subquery = sprintf("%s&p%d", url, pnum)
+            doc = Nokogiri::HTML(open(url,'Cookie' => @cookie))
+            @pages << JobUp::Page::Content.new(doc)
           end
 
           return page
