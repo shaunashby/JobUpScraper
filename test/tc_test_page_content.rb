@@ -40,7 +40,7 @@ class TestJobUpPageContent < MiniTest::Unit::TestCase
     assert_equal("#{nav.class}","JobUp::Page::Navigator")
   end
 
-  def test_page_content_get_pagecount
+  def test_page_content_get_post_count
     assert_equal(@page_content.postcount, 91)
   end
 end
