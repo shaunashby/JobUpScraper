@@ -45,13 +45,11 @@ module JobUp
           npages = page.get_nav.pagecount
 
           # Save the first page:
-          @pages.push(page)
-          # From the page navigation we can build a list of sub-queries and retrieve
-          # each of the subsequent pages:
-          (2..page.get_nav().pagecount).each do |pnum|
-            subquery = sprintf("%s&p%d", url, pnum)
-            doc = Nokogiri::HTML(open(url,'Cookie' => @cookie))
-            @pages << JobUp::Page::Content.new(doc)
+          @pages << page 
+
+          # Retrieve each of the linked pages and store the Page::Content object:
+          (2..npages).each do |pnum|
+            @pages << JobUp::Page::Content.new( Nokogiri::HTML( open(url + sprintf("&p%d",pnum), 'Cookie' => "#{@cookie}") ))
           end
         rescue => err
           $stderr.print("ERROR: #{err}.\n")
