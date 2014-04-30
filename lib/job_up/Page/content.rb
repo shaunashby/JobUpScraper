@@ -46,6 +46,10 @@ module JobUp
         return @posts
       end
 
+      def to_s
+        return sprintf("<id=%s  doc=%s>",self.object_id,@doc.object_id)
+      end
+
     end
   end
 end
