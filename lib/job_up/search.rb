@@ -37,7 +37,22 @@ module JobUp
       request.get_page_content(query_params)
       # Get the pages:
       @pages = request.pages
-      printf("JobUp::Search: %d posts found\n",@pages[0].postcount)
+      main_page = @pages.first
+      printf("JobUp::Search: %d posts expected in %d pages\n",main_page.postcount,@pages.length)
+
+      # Loop over each page, get posts:
+      @pages.each do |page|
+        page.posts.each do |post|
+          date = t.at_xpath('div/span[@class="C_PDATE"]').text
+          pid  = post.at_xpath('div/label[@class="C_PID"]').text.to_i
+          job_url = t.at_xpath('a').attr('href')
+          job_desc = post.at_xpath('a').text
+          enterp = t.at_xpath('label[@class="C_PNAME"]').text
+          loca   = t.at_xpath('label[@class="C_PCANTONS"]').text
+          printf("%-15s %-8d %-60s %-40s %-20s\n",date,pid,job_desc,"XX"+enterp+"XX","XX"+loca+"XX")
+        end
+      end
+
     end
 
   end
