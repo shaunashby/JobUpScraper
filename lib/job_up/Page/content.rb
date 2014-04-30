@@ -37,7 +37,6 @@ module JobUp
 
       def get_nav
         nav = JobUp::Page::Navigator.new(@doc)
-
       end
 
       def posts
