@@ -41,7 +41,7 @@ module JobUp
 
           pagenav = JobUp::Page::Navigator.new(main_doc)
           # Save the first page:
-          @pages << page 
+          @pages << JobUp::Page::Content.new( Nokogiri::HTML(main_doc) )
 
           # Retrieve each of the linked pages and store the Page::Content object:
           (2..pagenav.pagecount).each do |pnum|
