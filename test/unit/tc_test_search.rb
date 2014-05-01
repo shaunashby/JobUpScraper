@@ -17,13 +17,22 @@ require 'job_up/search'
 class TestSearch < MiniTest::Unit::TestCase
 
   def test_search_post_class
-    p = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","ABC & Cie S.A.")
-    assert_instance_of(JobUp::Post, p, "Check instantiation of JobUp::Post")
+    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","ABC & Cie S.A.")
+    assert_instance_of(JobUp::Post, post, "Check instantiation of JobUp::Post")
   end
 
   def test_search_postcollection_class
-    p = JobUp::PostCollection.new
-    assert_instance_of(JobUp::PostCollection, p, "Check instantiation of JobUp::PostCollection")
+    post_collection = JobUp::PostCollection.new
+    assert_instance_of(JobUp::PostCollection,
+                       post_collection,
+                       "Check instantiation of JobUp::PostCollection")
+  end
+
+  def test_search_postcollection_add_post
+    post_collection = JobUp::PostCollection.new
+    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","ABC & Cie S.A.")
+    post_collection << post
+    assert(post_collection.members.length == 1)
   end
 
   def test_search_run_method
