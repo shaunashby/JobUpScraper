@@ -33,19 +33,26 @@ module JobUp
 
         begin
           main_doc = open(url)
+          # The meta method is only included in the OpenURI module
+          # when the input is a URL, not a file:
           if main_doc.respond_to? :meta
             if cookie.nil?
               cookie = main_doc.meta['set-cookie'].split('; ',2)[0]
             end
           end
 
-          pagenav = JobUp::Page::Navigator.new(main_doc)
-          # Save the first page:
-          @pages << JobUp::Page::Content.new( Nokogiri::HTML(main_doc) )
+          html_doc = Nokogiri::HTML(main_doc)
+          pagenav = JobUp::Page::Navigator.new(html_doc)
 
-          # Retrieve each of the linked pages and store the Page::Content object:
-          (2..pagenav.pagecount).each do |pnum|
-            @pages << JobUp::Page::Content.new( Nokogiri::HTML( open(url + sprintf("&p=%d",pnum), 'Cookie' => cookie ) ))
+          # Save the first landing page:
+          @pages << JobUp::Page::Content.new(html_doc)
+
+          # Retrieve each of the linked pages and store the Page::Content object.
+          # Only do this for a real URL (i.e. not for testing):
+          if main_doc.respond_to? :meta
+            (2..pagenav.pagecount).each do |pnum|
+              @pages << JobUp::Page::Content.new( Nokogiri::HTML( open(url + sprintf("&p=%d",pnum), 'Cookie' => cookie ) ))
+            end
           end
         rescue => err
           $stderr.print("ERROR: #{err}.\n")
