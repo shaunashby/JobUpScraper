@@ -35,10 +35,6 @@ module JobUp
         return n_posts_result_text.split(/ /)[0].to_i
       end
 
-      def get_nav
-        nav = JobUp::Page::Navigator.new(@doc)
-      end
-
       def posts
         @doc.xpath(SEARCH_OL_JOBS_LIST_LINKS_XPATH).each do |p|
           @posts << p

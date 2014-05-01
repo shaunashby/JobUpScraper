@@ -41,14 +41,12 @@ module JobUp
             end
           end
 
-          page = JobUp::Page::Content.new( Nokogiri::HTML(@main_doc) )
-          npages = page.get_nav.pagecount
-
+          pagenav = JobUp::Page::Navigator.new(main_doc)
           # Save the first page:
           @pages << page 
 
           # Retrieve each of the linked pages and store the Page::Content object:
-          (2..npages).each do |pnum|
+          (2..pagenav.pagecount).each do |pnum|
             @pages << JobUp::Page::Content.new( Nokogiri::HTML( open(url + sprintf("&p=%d",pnum), 'Cookie' => cookie ) ))
           end
         rescue => err
