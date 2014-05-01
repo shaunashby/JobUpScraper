@@ -12,7 +12,7 @@ end
 
 #### Spec ####
 RSpec::Core::RakeTask.new(:spec) do |config|
-  config.rcov = true
+  config.verbose = true
 end
 
 task :default => :spec
