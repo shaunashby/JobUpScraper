@@ -21,6 +21,11 @@ class TestSearch < MiniTest::Unit::TestCase
     assert_instance_of(JobUp::Post, p, "Check instantiation of JobUp::Post")
   end
 
+  def test_search_postcollection_class
+    p = JobUp::PostCollection.new
+    assert_instance_of(JobUp::PostCollection, p, "Check instantiation of JobUp::PostCollection")
+  end
+
   def test_search_run_method
     pass
   end
