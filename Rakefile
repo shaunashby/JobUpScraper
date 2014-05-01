@@ -7,5 +7,11 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
-RSpec::Core::RakeTask.new(:spec)
+#### Spec ####
+RSpec::Core::RakeTask.new(:spec) do |config|
+  config.rcov = true
+end
+
 task :default => :spec
+
+require 'rspec/autorun'
