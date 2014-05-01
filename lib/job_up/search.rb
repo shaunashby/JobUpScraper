@@ -44,14 +44,17 @@ module JobUp
 
   class PostCollection
     def initialize
-      @collection = []
+      @members = []
     end
 
     def <<(post)
-      @collection << post
+      @members << post
     end
 
+    attr_reader :members
+
   end
+
   class Search
     # Something for simply running a search:
     def self.run(query_params)
