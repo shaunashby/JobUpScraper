@@ -53,6 +53,10 @@ module JobUp
 
     attr_reader :members
 
+    def to_s
+      return sprintf("<%s> Membership: %d\n",self.object_id,@members.length)
+    end
+
   end
 
   class Search
