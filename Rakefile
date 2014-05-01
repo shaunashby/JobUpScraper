@@ -1,6 +1,9 @@
 require 'rake/testtask'
 require 'rspec/core/rake_task'
 
+require 'nokogiri'
+require 'open-uri'
+
 Rake::TestTask.new do |t|
   t.libs.push "lib"
   t.test_files = FileList['test/unit/tc_test_*.rb']

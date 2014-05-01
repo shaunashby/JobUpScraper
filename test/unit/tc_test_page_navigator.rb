@@ -13,8 +13,6 @@
 #
 #--------------------------------------------------------------------
 require 'minitest/autorun'
-require 'nokogiri'
-require 'open-uri'
 
 require 'job_up/page/navigator'
 
