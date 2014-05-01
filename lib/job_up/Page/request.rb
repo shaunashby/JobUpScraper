@@ -23,21 +23,19 @@ module JobUp
     class Request
       def initialize(base_url)
         @base_url = base_url
-        @main_doc = nil
         @pages = Array.new
       end
 
       def get_page_content(query_params)
         url = @base_url + query_params
         cookie = nil
+        main_doc = nil
 
         begin
-          if @main_doc.nil?
-            @main_doc = open(url)
-            if @main_doc.respond_to? :meta
-              if cookie.nil?
-                cookie = @main_doc.meta['set-cookie'].split('; ',2)[0]
-              end
+          main_doc = open(url)
+          if main_doc.respond_to? :meta
+            if cookie.nil?
+              cookie = main_doc.meta['set-cookie'].split('; ',2)[0]
             end
           end
 
