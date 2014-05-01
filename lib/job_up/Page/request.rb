@@ -49,7 +49,7 @@ module JobUp
 
           # Retrieve each of the linked pages and store the Page::Content object:
           (2..npages).each do |pnum|
-            @pages << JobUp::Page::Content.new( Nokogiri::HTML( open(url + sprintf("&p%d",pnum), 'Cookie' => "#{@cookie}") ))
+            @pages << JobUp::Page::Content.new( Nokogiri::HTML( open(url + sprintf("&p=%d",pnum), 'Cookie' => cookie ) ))
           end
         rescue => err
           $stderr.print("ERROR: #{err}.\n")
