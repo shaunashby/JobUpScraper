@@ -69,21 +69,21 @@ module JobUp
       main_page = @pages.first
       printf("JobUp::Search: %d posts expected in %d pages\n",main_page.postcount,@pages.length)
 
+      collection = PostCollection.new
+
       # Loop over each page, get posts:
       @pages.each do |page|
         page.posts.each do |post|
-          date = t.at_xpath('div/span[@class="C_PDATE"]').text
-          pid  = post.at_xpath('div/label[@class="C_PID"]').text.to_i
-          job_url = t.at_xpath('a').attr('href')
-          job_desc = post.at_xpath('a').text
-          enterp = t.at_xpath('label[@class="C_PNAME"]').text
-          loca   = t.at_xpath('label[@class="C_PCANTONS"]').text
-          printf("%-15s %-8d %-60s %-40s %-20s\n",date,pid,job_desc,"XX"+enterp+"XX","XX"+loca+"XX")
+          j = Post.new(post.at_xpath('div/label[@class="C_PID"]').text.to_i,
+                       post.at_xpath('div/span[@class="C_PDATE"]').text,
+                       post.at_xpath('a').text,
+                       post.at_xpath('label[@class="C_PNAME"]').text)
+          j.url = post.at_xpath('a').attr('href')
+          j.location = post.at_xpath('label[@class="C_PCANTONS"]').text
+          collection << j
         end
       end
-
+      puts collection
     end
-
   end
-
 end
