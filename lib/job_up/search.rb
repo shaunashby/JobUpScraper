@@ -30,35 +30,6 @@ module JobUp
 
   SEARCH_JOBUP_BASE_URL = 'http://www.jobup.ch/search/joblist.asp?cmd=showresults'
 
-  class Post
-    def initialize(pid, datestring, description, enterprise)
-      @pid = pid
-      @datestring = datestring
-      @description = description
-      @enterprise = enterprise
-    end
-
-    attr_accessor :url, :location
-
-  end
-
-  class PostCollection
-    def initialize
-      @members = []
-    end
-
-    def <<(post)
-      @members << post
-    end
-
-    attr_reader :members
-
-    def to_s
-      return sprintf("<%s> Membership: %d\n",self.object_id,@members.length)
-    end
-
-  end
-
   class Search
     # Something for simply running a search:
     def self.run(query_params)
