@@ -38,7 +38,6 @@ module JobUp
 
       def posts
         @doc.xpath(SEARCH_OL_JOBS_LIST_LINKS_XPATH).each do |p|
-
           post = Post.new(p.at_xpath('div/label[@class="C_PID"]').text.to_i,
                           p.at_xpath('div/span[@class="C_PDATE"]').text,
                           p.at_xpath('a').text,
@@ -52,7 +51,7 @@ module JobUp
       end
 
       def to_s
-        return sprintf("<id=%s  doc=%s>",self.object_id,@doc.object_id)
+        return sprintf("<id=%s posts=%d>",self.object_id, self.@posts.length)
       end
 
     end
