@@ -74,13 +74,7 @@ module JobUp
       # Loop over each page, get posts:
       @pages.each do |page|
         page.posts.each do |post|
-          j = Post.new(post.at_xpath('div/label[@class="C_PID"]').text.to_i,
-                       post.at_xpath('div/span[@class="C_PDATE"]').text,
-                       post.at_xpath('a').text,
-                       post.at_xpath('label[@class="C_PNAME"]').text)
-          j.url = post.at_xpath('a').attr('href')
-          j.location = post.at_xpath('label[@class="C_PCANTONS"]').text
-          collection << j
+          collection << post
         end
       end
       puts collection
