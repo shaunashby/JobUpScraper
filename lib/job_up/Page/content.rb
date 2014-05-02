@@ -51,7 +51,7 @@ module JobUp
       end
 
       def to_s
-        return sprintf("<id=%s posts=%d>",self.object_id, self.@posts.length)
+        return sprintf("<id=%s posts=%d>",self.object_id, @posts.length)
       end
 
     end
