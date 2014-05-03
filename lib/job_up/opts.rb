@@ -59,7 +59,7 @@ module JobUp
       begin
         opts.parse!(args)
       rescue OptionParser::InvalidOption
-        puts "Invalid option - for usage, use -h"
+        $stderr.print("Invalid option - for usage, use -h")
         exit
       end
 
