@@ -35,21 +35,3 @@ configuration = JobUp::Configuration.new(options)
 #jobmailer = JobUp::JobMailer::Criteria.new
 #query_params = jobmailer.query_params()
 #JobUp::Search.run(query_params)
-
-
-
-# jmid:
-#   desc:
-#   keywords:
-#   subcategories:
-#   cantons:
-#   employment:
-#   companytypes:
-
-# jmid: 2
-#   - desc: This is the description
-#   - keywords: UNIX,Linux,linux,system+admin
-#   - subcategories: 1,2,3,4,5
-#   - cantons: GE1,GE2,GE3,VD1
-#   - employment: PERMANENT,LIMITED,FREELANCE
-#   - companytypes: 2
