@@ -51,8 +51,45 @@ module JobUp
     end
   end
 
-  module Configuration
+  class ConfigError < StandardError; end
+
+  class Configuration
+
+    class Params; end
+
+    require 'yaml'
+
     CONFIG_FILE='jobsearch.yml'
+
+    def initialize(opts={})
+      @options = opts
+      # Parse the supplied config file or use the default
+      # if one given on command-line:
+      @options['config'] ? parse(@options['config']) : parse()
+
+    end
+
+    def parse(filename=CONFIG_FILE)
+      conf = nil
+      begin
+        File.open(filename, "rb") do |f|
+          conf = YAML::load(f)
+        end
+
+        puts conf.inspect
+
+        conf['jobsearch'].each do |jm|
+          printf("Found configured search: ID %d\n",jm['jmid'])
+          printf("--> %s\n",jm['desc'])
+          print("**************************************\n")
+          printf("",)
+        end
+      rescue => err
+        $stderr.print("ERROR: #{err}.\n")
+      end
+
+    end
+
   end
 
 end

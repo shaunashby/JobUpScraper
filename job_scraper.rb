@@ -17,15 +17,6 @@ require 'job_up/opts'
 # Get the options from the command-line:
 options = JobUp::Opts.parse(ARGV)
 
-# Read the configuration file:
-require 'yaml'
-
-yamlconf = nil
-File.open(options['config'], "rb") do |f|
-  yamlconf = YAML::load(f)
-  options['base_url'] = yamlconf['jobup_base_url']
-end
-
 # Set up the search and run it:
 require 'job_up'
 require 'job_up/search'
