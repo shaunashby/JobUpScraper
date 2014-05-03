@@ -28,7 +28,8 @@ else
 
 end
 
-puts yamlconf['jobsearch'].inspect
+configuration = JobUp::Configuration.new(options)
+
 
 
 #jobmailer = JobUp::JobMailer::Criteria.new
