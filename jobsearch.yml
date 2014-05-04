@@ -14,7 +14,7 @@
 jobup_base_url: http://www.jobup.ch/b2c/USR_joblist.asp?cmd=showresults
 # The searches:
 jobsearch:
-  - jmid: 276463
+  - id: 276463
     desc: All IT/Telecomms/Bank (Agencies Only)
     keywords: ~
     subcategories: [ 147,199,13,194,197,42,71,195,1,72,198,193,88,196 ]
@@ -24,7 +24,7 @@ jobsearch:
       - LIMITED
       - FREELANCE
     companytypes: 2
-  - jmid: 354348
+  - id: 354348
     desc: Dev Bank/IT/Telecomms
     keywords:
       - Ruby
@@ -42,7 +42,7 @@ jobsearch:
       - LIMITED
       - FREELANCE
     companytypes: 0
-  - jmid: 354350
+  - id: 354350
     desc: Dev Bank/IT/Telecomms (Java Only)
     keywords:
       - Java
@@ -53,7 +53,7 @@ jobsearch:
       - LIMITED
       - FREELANCE
     companytypes: 0
-  - jmid: 354344
+  - id: 354344
     desc: IT/Telecomms (Full Sector, No KWD)
     keywords: ~
     subcategories: [ 199,13,194,197,42,71,195,1,72,198,193,88,196 ]
@@ -63,7 +63,7 @@ jobsearch:
       - LIMITED
       - FREELANCE
     companytypes: 0
-  - jmid: 354346
+  - id: 354346
     desc: System Admin UNIX/Linux
     keywords:
       - UNIX
