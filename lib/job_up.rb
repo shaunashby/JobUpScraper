@@ -72,9 +72,6 @@ module JobUp
   class ConfigError < StandardError; end
 
   class Configuration
-
-    class Params; end
-
     require 'yaml'
 
     CONFIG_FILE='jobsearch.yml'
