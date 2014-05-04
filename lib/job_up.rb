@@ -16,7 +16,7 @@
 module JobUp
   VERSION='0.0.1'
 
-  module JobMailer
+  module JobSearch
     #
     #    COMPANYTYPES_ALL = 0
     #    COMPANYTYPES_ENTERPRISE_ONLY = 1
@@ -86,7 +86,7 @@ module JobUp
 
         @jobsearches = Hash.new
         conf['jobsearch'].each do |jobsearch|
-          @jobsearches[jobsearch['id']] = JobMailer::Criteria.new(jobsearch['id'],
+          @jobsearches[jobsearch['id']] = JobSearch::Criteria.new(jobsearch['id'],
                                                                   jobsearch['description'],
                                                                   :subcategories => jobsearch['subcategories'],
                                                                   :cantons       => jobsearch['cantons'],
