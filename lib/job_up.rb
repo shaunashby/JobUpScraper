@@ -83,23 +83,23 @@ module JobUp
         File.open(filename, "rb") do |f|
           conf = YAML::load(f)
         end
-        @jobmailers = Hash.new
 
-        conf['jobsearch'].each do |jm|
-          @jobmailers[jm['id']] = JobMailer::Criteria.new(jm['id'],
-                                                            jm['description'],
-                                                            :subcategories => jm['subcategories'],
-                                                            :cantons       => jm['cantons'],
-                                                            :keywords      => jm['keywords'],
-                                                            :employment    => jm['employment'],
-                                                            :companytypes  => jm['companytypes'])
+        @jobsearches = Hash.new
+        conf['jobsearch'].each do |jobsearch|
+          @jobsearches[jobsearch['id']] = JobMailer::Criteria.new(jobsearch['id'],
+                                                                  jobsearch['description'],
+                                                                  :subcategories => jobsearch['subcategories'],
+                                                                  :cantons       => jobsearch['cantons'],
+                                                                  :keywords      => jobsearch['keywords'],
+                                                                  :employment    => jobsearch['employment'],
+                                                                  :companytypes  => jobsearch['companytypes'])
         end
       rescue => err
         $stderr.print("ERROR: #{err}.\n")
       end
     end
 
-    attr_reader :jobmailers
+    attr_reader :jobsearches
   end
 
 end
