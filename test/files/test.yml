@@ -1,0 +1,34 @@
+#____________________________________________________________________
+# File: test.yml
+#____________________________________________________________________
+#
+# Author: Shaun Ashby <shaun@ashby.ch>
+# Created: 2014-05-03 19:41:28+0200
+# Revision: $Id$
+# Description: A test configuration file.
+#
+# Copyright (C) 2014 Shaun Ashby
+#
+#
+#--------------------------------------------------------------------
+jobup_base_url: http://www.jobup.ch/b2c/USR_joblist.asp?cmd=showresults
+# The searches:
+jobsearch:
+  - id: 354346
+    description: System Admin UNIX/Linux
+    keywords:
+      - UNIX
+      - Linux
+      - Unix
+      - linux
+      - system+admin
+      - monitoring
+      - puppet
+      - nagios
+    subcategories: [ 147,199,13,194,197,42,71,195,1,72,198,193,88,196 ]
+    cantons: [ GE1, GE2, GE3, VD1, GE ]
+    employment: 
+      - PERMANENT
+      - LIMITED
+      - FREELANCE
+    companytypes: 0
