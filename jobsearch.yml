@@ -11,7 +11,7 @@
 #
 #
 #--------------------------------------------------------------------
-jobup_base_url: http://www.jobup.ch/b2c/USR_joblist.asp?cmd=showresults
+base_url: http://www.jobup.ch/search/joblist.asp?cmd=showresults
 # The searches:
 jobsearch:
   - id: 276463
