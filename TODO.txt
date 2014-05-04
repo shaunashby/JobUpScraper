@@ -1,5 +1,2 @@
-
 - Improve unit tests
 - Add RSpec tests for more detailed testing of functionality
-- Configuration handling
-
