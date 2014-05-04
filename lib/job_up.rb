@@ -103,9 +103,9 @@ module JobUp
       rescue => err
         $stderr.print("ERROR: #{err}.\n")
       end
-
     end
 
+    attr_reader :jobmailers
   end
 
 end
