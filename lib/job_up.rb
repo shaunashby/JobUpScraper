@@ -55,6 +55,18 @@ module JobUp
       attr_reader :query_params
       attr_reader :keywords
 
+      def show
+        info = self.to_s
+        info += sprintf("Query: %s\n",@query_params)
+        info += sprintf("*************************************************************************************\n")
+        info += sprintf("\n")
+        return info
+      end
+
+      def to_s
+        return sprintf("<#{self.object_id}>: Configured search ID %-8d            --> %s\n",@jmid, @desc)
+      end
+
     end
   end
 
