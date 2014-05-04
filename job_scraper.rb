@@ -21,17 +21,41 @@ options = JobUp::Opts.parse(ARGV)
 require 'job_up'
 require 'job_up/search'
 
-# If a search id is given as an option, run a single search:
-if options['jid']
-  puts "Searching using JobMailer opts #{options['jid']}:"
-else
-
-end
-
+# Get the configuration:
 configuration = JobUp::Configuration.new(options)
 
+# Handle version option:
+if options['version']
+  puts JobUp::VERSION
+  exit 0
+end
 
+# Handle show option:
+if options['show']
+  configuration.jobsearches.each_value do |c|
+      puts c.show
+  end
+  exit 0
+end
 
-#jobmailer = JobUp::JobMailer::Criteria.new
-#query_params = jobmailer.query_params()
-#JobUp::Search.run(query_params)
+# If a search id is given as an option, run a single search:
+if options['search_id']
+  search_id = options['search_id'].to_i
+  puts "Searching with search ID #{search_id}:"
+  if configuration.jobsearches.has_key?(search_id)
+    c = configuration.jobsearches[search_id]
+    JobUp::Search.run(c.query_params)
+  else
+    $stderr.print("ERROR: Unable to find search with id #{search_id}\n")
+    exit 1
+  end
+else
+  puts "Running all searches....\n"
+  puts "\n"
+  configuration.jobsearches.each_value do |c|
+    if options['debug']
+      puts c
+    end
+    JobUp::Search.run(c.query_params)
+  end
+end
