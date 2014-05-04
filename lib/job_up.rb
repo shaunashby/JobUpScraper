@@ -25,9 +25,9 @@ module JobUp
     class Criteria
       require 'cgi'
 
-      def initialize(id, desc, params)
+      def initialize(id, description, params)
         @id = id
-        @desc = desc
+        @description = description
 
         @query_params  = sprintf("&subcategories=%s",params[:subcategories].join(","))
         @query_params += sprintf("&cantons=%s",params[:cantons].join(","))
@@ -45,7 +45,7 @@ module JobUp
       end
 
       attr_reader :id
-      attr_reader :desc
+      attr_reader :description
       attr_reader :query_params
 
       def show
@@ -57,7 +57,7 @@ module JobUp
       end
 
       def to_s
-        return sprintf("<#{self.object_id}>: Configured search ID %-8d            --> %s\n",@id, @desc)
+        return sprintf("<#{self.object_id}>: Configured search ID %-8d            --> %s\n",@id, @description)
       end
 
     end
@@ -87,7 +87,7 @@ module JobUp
 
         conf['jobsearch'].each do |jm|
           @jobmailers[jm['id']] = JobMailer::Criteria.new(jm['id'],
-                                                            jm['desc'],
+                                                            jm['description'],
                                                             :subcategories => jm['subcategories'],
                                                             :cantons       => jm['cantons'],
                                                             :keywords      => jm['keywords'],
