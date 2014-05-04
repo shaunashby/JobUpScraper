@@ -6,4 +6,4 @@ motivation for this is the limited info provided by the JobMailers which insist 
 a maximum of 10 new positions in each email notification: not much help when there might be 60
 or more posts.
 
-This is my attempt at over-engineering something which is intrinsicly very easy - for fun!
+This is my attempt at over-engineering something which is intrinsically very easy - for fun!
