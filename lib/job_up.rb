@@ -53,7 +53,6 @@ module JobUp
       attr_reader :jmid
       attr_reader :desc
       attr_reader :query_params
-      attr_reader :keywords
 
       def show
         info = self.to_s
