@@ -24,6 +24,9 @@ require 'job_up/search'
 # Get the configuration:
 configuration = JobUp::Configuration.new(options)
 
+# Base url for searches:
+search_base_url = configuration.base_url()
+
 # Handle version option:
 if options['version']
   puts JobUp::VERSION
@@ -44,7 +47,7 @@ if options['search_id']
   puts "Searching with search ID #{search_id}:"
   if configuration.jobsearches.has_key?(search_id)
     c = configuration.jobsearches[search_id]
-    JobUp::Search.run(c.query_params)
+    JobUp::Search.run(search_base_url, c.query_params)
   else
     $stderr.print("ERROR: Unable to find search with id #{search_id}\n")
     exit 1
@@ -56,6 +59,6 @@ else
     if options['debug']
       puts c
     end
-    JobUp::Search.run(c.query_params)
+    JobUp::Search.run(search_base_url, c.query_params)
   end
 end

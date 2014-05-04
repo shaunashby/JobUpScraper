@@ -72,6 +72,7 @@ module JobUp
 
     def initialize(opts={})
       @options = opts
+      @base_url = nil
       # Parse the supplied config file or use the default
       # if one given on command-line:
       @options['config'] ? parse(@options['config']) : parse()
