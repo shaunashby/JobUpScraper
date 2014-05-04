@@ -89,14 +89,16 @@ module JobUp
         File.open(filename, "rb") do |f|
           conf = YAML::load(f)
         end
-
-        puts conf.inspect
+        @jobmailers = Hash.new
 
         conf['jobsearch'].each do |jm|
-          printf("Found configured search: ID %d\n",jm['jmid'])
-          printf("--> %s\n",jm['desc'])
-          print("**************************************\n")
-          printf("",)
+          @jobmailers[jm['jmid']] = JobMailer::Criteria.new(jm['jmid'],
+                                                            jm['desc'],
+                                                            :subcategories => jm['subcategories'],
+                                                            :cantons       => jm['cantons'],
+                                                            :keywords      => jm['keywords'],
+                                                            :employment    => jm['employment'],
+                                                            :companytypes  => jm['companytypes'])
         end
       rescue => err
         $stderr.print("ERROR: #{err}.\n")
