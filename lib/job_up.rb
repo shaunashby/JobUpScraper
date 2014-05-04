@@ -31,20 +31,27 @@ module JobUp
     class Criteria
       require 'cgi'
 
-      def initialize()
-        @subcategories = SUBCATEGORIES.join(",")
-        @cantons = CANTONS.join(",")
-        @keywords = KEYWORDS.map { |k| CGI.escape(k) }.join("/")
-        @employment = EMPLOYMENT.join(",")
+      def initialize(jmid, desc, params)
+        @jmid = jmid
+        @desc = desc
 
-        @query_params = sprintf("&subcategories=%s&cantons=%s&keywords=%s&employment=%s&companytypes=%s",
-                                @subcategories,
-                                @cantons,
-                                @keywords,
-                                @employment,
-                                COMPANYTYPES_ALL)
+        @query_params  = sprintf("&subcategories=%s",params[:subcategories].join(","))
+        @query_params += sprintf("&cantons=%s",params[:cantons].join(","))
+
+        if !params[:keywords].nil?
+          keywords    = params[:keywords].map { |k| CGI.escape(k) }.join("/")
+          @query_params += sprintf("&keywords=%s",keywords)
+        end
+
+        @query_params += sprintf("&employment=%s",params[:employment].join(","))
+
+        if !params[:companytypes].nil?
+          @query_params += sprintf("&companytypes=%s",params[:companytypes])
+        end
       end
 
+      attr_reader :jmid
+      attr_reader :desc
       attr_reader :query_params
       attr_reader :keywords
 
