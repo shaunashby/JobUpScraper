@@ -84,6 +84,8 @@ module JobUp
           conf = YAML::load(f)
         end
 
+        @base_url = conf['base_url']
+
         @jobsearches = Hash.new
         conf['jobsearch'].each do |jobsearch|
           @jobsearches[jobsearch['id']] = JobSearch::Criteria.new(jobsearch['id'],
@@ -100,6 +102,8 @@ module JobUp
     end
 
     attr_reader :jobsearches
+    attr_reader :base_url
+
   end
 
 end
