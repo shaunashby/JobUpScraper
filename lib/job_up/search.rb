@@ -27,12 +27,10 @@ module JobUp
   SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]'
   SEARCH_OL_JOBS_LIST_LINKS_XPATH = '//*[@id="jobs_list"]/li/div'
 
-  SEARCH_JOBUP_BASE_URL = 'http://www.jobup.ch/search/joblist.asp?cmd=showresults'
-
   class Search
     # Something for simply running a search:
-    def self.run(query_params)
-      request = Page::Request.new(SEARCH_JOBUP_BASE_URL)
+    def self.run(base_url, query_params)
+      request = Page::Request.new(base_url)
       request.get_page_content(query_params)
       # Get the pages:
       @pages = request.pages
