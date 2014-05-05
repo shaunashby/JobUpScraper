@@ -20,9 +20,6 @@ module JobUp
   module Page
     class Content
 
-      SEARCH_LABEL_RESULT_COUNT_XPATH = '//*[@id="label_result_count"]'
-      SEARCH_OL_JOBS_LIST_LINKS_XPATH = '//*[@id="jobs_list"]/li/div'
-
       def initialize(doc)
         @doc = doc
         @posts = Array.new

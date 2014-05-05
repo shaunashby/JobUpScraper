@@ -18,14 +18,6 @@ require 'open-uri'
 require 'job_up/page/request'
 
 module JobUp
-  # FIXME: move constants to separate module
-  SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_XPATH      ='//*[@id="search_content"]/div/table'
-  SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_BODY_XPATH ='//*[@id="search_content"]/div/table/tbody'
-
-  SEARCH_NAV_BLOCK                = '//*[@id="navigator"]'
-  SEARCH_NAV_BLOCK_NAV_LAST       = '//*[@id="nav_last"]'
-  SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]'
-  SEARCH_OL_JOBS_LIST_LINKS_XPATH = '//*[@id="jobs_list"]/li/div'
 
   class Search
     # Something for simply running a search:
