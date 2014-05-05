@@ -14,6 +14,7 @@
 #--------------------------------------------------------------------
 
 require 'job_up/page/navigator'
+require 'job_up/constants'
 require 'job_up/post'
 
 module JobUp

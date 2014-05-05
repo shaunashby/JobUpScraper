@@ -14,6 +14,7 @@
 #--------------------------------------------------------------------
 
 require 'job_up/page_error'
+require 'job_up/constants'
 
 module JobUp
   module Page
