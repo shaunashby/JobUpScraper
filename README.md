@@ -9,11 +9,24 @@ into a form that is useful. The main motivation for this is the limited info pro
 `JobMailers` which insist on only listing a maximum of 10 new positions in each email notification: not much 
 help when there might be 60 or more posts to skim over.
 
-This is my attempt at over-engineering something which is intrinsically very easy - for fun!
+This is my attempt at over-engineering something which is intrinsically very easy to do - for fun!
 
 ### How to use it
 
-Run `job_scraper -h` for usage information.
+Run
+
+```
+job_scraper -h
+```
+
+for full usage information.
+
+Here are some specific examples:
+
+* ** Running all searches: *
+* ** Listing all configured searches: * Run `job_scraper --show` to list all configured searches and their parameters.
+* ** Running a single search: * Run `job_scraper -j 12345` to run just the search identified by the id `12345`.
+* ** Debug mode: * Use `-d` to turn on the debug flag and show more detailed output.
 
 ## License
 
