@@ -25,6 +25,9 @@ module JobUp
 
     attr_accessor :url, :location
 
+    def <=>(p)
+      return @pid <=> p.pid
+    end
   end
 
   class PostCollection
