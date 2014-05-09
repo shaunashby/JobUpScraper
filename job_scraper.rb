@@ -35,7 +35,7 @@ end
 
 # Handle show option:
 if options['show']
-  configuration.jobsearches.each_value do |c|
+  configuration.jobsearches.each do |c|
       puts c.show
   end
   exit 0
@@ -45,19 +45,17 @@ end
 if options['search_id']
   search_id = options['search_id'].to_i
   puts "Searching with search ID #{search_id}:"
-  if configuration.jobsearches.has_key?(search_id)
-    c = configuration.jobsearches[search_id]
-    JobUp::Search.run(search_base_url, c.query_params)
-  else
+  search = configuration.jobsearches.select { |jobsearch| jobsearch.id == search_id }
+  if search.empty?
     $stderr.print("ERROR: Unable to find search with id #{search_id}\n")
     exit 1
   end
 else
   puts "Running all searches....\n"
   puts "\n"
-  configuration.jobsearches.each_value do |c|
+  configuration.jobsearches.each do |search|
     if options['debug']
-      puts c
+      puts search
     end
     JobUp::Search.run(search_base_url, c.query_params)
   end

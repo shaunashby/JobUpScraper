@@ -87,15 +87,15 @@ module JobUp
 
         @base_url = conf['base_url']
 
-        @jobsearches = Hash.new
+        @jobsearches = Array.new
         conf['jobsearch'].each do |jobsearch|
-          @jobsearches[jobsearch['id']] = JobSearch::Criteria.new(jobsearch['id'],
-                                                                  jobsearch['description'],
-                                                                  :subcategories => jobsearch['subcategories'],
-                                                                  :cantons       => jobsearch['cantons'],
-                                                                  :keywords      => jobsearch['keywords'],
-                                                                  :employment    => jobsearch['employment'],
-                                                                  :companytypes  => jobsearch['companytypes'])
+          @jobsearches << JobSearch::Criteria.new(jobsearch['id'],
+                                                  jobsearch['description'],
+                                                  :subcategories => jobsearch['subcategories'],
+                                                  :cantons       => jobsearch['cantons'],
+                                                  :keywords      => jobsearch['keywords'],
+                                                  :employment    => jobsearch['employment'],
+                                                  :companytypes  => jobsearch['companytypes'])
         end
       rescue => err
         $stderr.print("ERROR: #{err}.\n")
