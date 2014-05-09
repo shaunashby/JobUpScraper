@@ -3,6 +3,7 @@ source "http://rubygems.org"
 
 # Add Gems below:
 gem 'nokogiri'
+gem 'sqlite3'
 
 # For testing:
 gem 'rspec'
