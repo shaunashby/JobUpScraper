@@ -35,8 +35,8 @@ end
 
 # Handle show option:
 if options['show']
-  configuration.jobsearches.each do |c|
-      puts c.show
+  configuration.jobsearches.each do |search|
+      puts search.show
   end
   exit 0
 end
