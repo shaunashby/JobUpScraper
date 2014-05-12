@@ -59,6 +59,6 @@ else
     if options['debug']
       puts search
     end
-    JobUp::Search.run(search_base_url, c.query_params)
+    JobUp::Search.run(search_base_url, search.query_params)
   end
 end
