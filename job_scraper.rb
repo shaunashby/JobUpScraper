@@ -49,6 +49,8 @@ if options['search_id']
   if search.empty?
     $stderr.print("ERROR: Unable to find search with id #{search_id}\n")
     exit 1
+  else
+    JobUp::Search.run(search_base_url, search.first.query_params)
   end
 else
   puts "Running all searches....\n"
