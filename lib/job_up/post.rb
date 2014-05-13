@@ -22,9 +22,12 @@ module JobUp
       @pid = pid
       @datestring = datestring
       @description = description
-      @enterprise = enterprise
       @url = url
-      @location = location
+
+      # Clean up funny symbols which are difficult to remove with regexp (via gsub)
+      # For some reason or other (encoding issues). Discard first 2 elements:
+      @enterprise = enterprise.slice!(2,enterprise.length-1)
+      @location = location.slice!(2,location.length-1)
     end
 
     attr_accessor :pid, :url, :location
