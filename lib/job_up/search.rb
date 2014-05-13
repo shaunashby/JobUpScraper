@@ -42,6 +42,9 @@ module JobUp
         end
       end
       puts collection
+      collection.members.sort.reverse.each do |p|
+        puts p
+      end
     end
   end
 end
