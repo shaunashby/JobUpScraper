@@ -18,7 +18,7 @@ require 'job_up/search'
 class TestSearch < MiniTest::Unit::TestCase
 
   def test_search_post_class
-    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","ABC & Cie S.A.")
+    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","› ABC & Cie S.A.","/www/fake/url","› Genève")
     assert_instance_of(JobUp::Post, post, "Check instantiation of JobUp::Post")
   end
 
@@ -31,7 +31,7 @@ class TestSearch < MiniTest::Unit::TestCase
 
   def test_search_postcollection_add_post
     post_collection = JobUp::PostCollection.new
-    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","ABC & Cie S.A.")
+    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","› ABC & Cie S.A.","/www/fake/url","› Genève")
     post_collection << post
     assert(post_collection.members.length == 1)
   end
