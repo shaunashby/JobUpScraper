@@ -12,6 +12,8 @@
 #
 #
 #--------------------------------------------------------------------
+$:.unshift File.expand_path("../lib", __FILE__)
+
 require 'job_up/opts'
 
 # Get the options from the command-line:
