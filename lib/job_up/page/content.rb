@@ -39,10 +39,9 @@ module JobUp
           post = Post.new(p.at_xpath('div/label[@class="C_PID"]').text.to_i,
                           p.at_xpath('div/span[@class="C_PDATE"]').text,
                           p.at_xpath('a').text,
-                          p.at_xpath('label[@class="C_PNAME"]').text)
-          post.url      = p.at_xpath('a').attr('href')
-          post.location = p.at_xpath('label[@class="C_PCANTONS"]').text
-
+                          p.at_xpath('label[@class="C_PNAME"]').text,
+                          p.at_xpath('a').attr('href'),
+                          p.at_xpath('label[@class="C_PCANTONS"]').text)
           @posts << post
         end
         return @posts

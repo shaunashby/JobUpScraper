@@ -18,11 +18,13 @@ module JobUp
   class Post
     POST_PRINT_FORMAT="%-15s %-8d %-60s %-40s %-20s\n"
 
-    def initialize(pid, datestring, description, enterprise)
+    def initialize(pid, datestring, description, enterprise, url, location)
       @pid = pid
       @datestring = datestring
       @description = description
       @enterprise = enterprise
+      @url = url
+      @location = location
     end
 
     attr_accessor :pid, :url, :location
