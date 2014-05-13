@@ -25,7 +25,7 @@ module JobUp
       @enterprise = enterprise
     end
 
-    attr_accessor :url, :location
+    attr_accessor :pid, :url, :location
 
     def <=>(p)
       return @pid <=> p.pid
