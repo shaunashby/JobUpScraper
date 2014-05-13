@@ -16,6 +16,8 @@
 module JobUp
 
   class Post
+    POST_PRINT_FORMAT="%-15s %-8d %-60s %-40s %-20s\n"
+
     def initialize(pid, datestring, description, enterprise)
       @pid = pid
       @datestring = datestring
@@ -28,6 +30,16 @@ module JobUp
     def <=>(p)
       return @pid <=> p.pid
     end
+
+    def to_s
+      return sprintf(POST_PRINT_FORMAT,
+                     @datestring,
+                     @pid,
+                     @description,
+                     @enterprise,
+                     @location)
+    end
+
   end
 
   class PostCollection
