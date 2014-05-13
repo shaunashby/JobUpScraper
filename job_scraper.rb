@@ -41,6 +41,13 @@ if options['show']
   exit 0
 end
 
+# Check for the persistence flag. If this is set, data will be cached locally
+# and can be replayed:
+if options['persist']
+  puts "This session will be cached.\n";
+  ENV['JUS_USE_CACHE'] = "true"
+end
+
 # If a search id is given as an option, run a single search:
 if options['search_id']
   search_id = options['search_id'].to_i

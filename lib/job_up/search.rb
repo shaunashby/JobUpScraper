@@ -31,6 +31,10 @@ module JobUp
 
       collection = PostCollection.new
 
+      if !ENV['JUS_USE_CACHE'].nil? && !ENV['JUS_USE_CACHE'].empty?
+        puts "Going to be persistent...\n"
+      end
+
       # Loop over each page, get posts:
       @pages.each do |page|
         page.posts.each do |post|

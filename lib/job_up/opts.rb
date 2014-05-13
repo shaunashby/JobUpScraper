@@ -43,6 +43,10 @@ module JobUp
           options['start_pid'] = p
         end
 
+        opts.on("-e", "--epim", "Use persistency layer.") do |p|
+          options['persist'] = p
+        end
+
         opts.on("-v", "--version", "Show version and exit.") do |v|
           options['version'] = true
         end
