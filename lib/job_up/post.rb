@@ -12,15 +12,17 @@
 #
 #
 #--------------------------------------------------------------------
+require 'date'
 
 module JobUp
 
   class Post
     POST_PRINT_FORMAT="%-15s %-8d %-60s %-40s %-20s\n"
+    POST_DATE_FORMAT='%d/%m/%y'
 
     def initialize(pid, datestring, description, enterprise, url, location)
       @pid = pid
-      @datestring = datestring
+      @date = DateTime.parse(datestring)
       @description = description
       @url = url
 
@@ -38,7 +40,7 @@ module JobUp
 
     def to_s
       return sprintf(POST_PRINT_FORMAT,
-                     @datestring,
+                     @date.strftime(POST_DATE_FORMAT),
                      @pid,
                      @description,
                      @enterprise,
