@@ -41,6 +41,13 @@ class TestSearch < MiniTest::Unit::TestCase
     assert_equal(post.location,"Geneva")
   end
 
+  def test_search_post_date_parse
+    post = JobUp::Post.new(996104,"1 May 2014","IT-Support","› ABC & Cie S.A.","/www/fake/url","› Geneva")
+    post_as_text =
+      "01/05/14        996104   IT-Support                                                   ABC & Cie S.A.                           Geneva              "
+    assert_equal("#{post.to_s.chomp!}",post_as_text)
+  end
+
   def test_search_run_method
     pass
   end
