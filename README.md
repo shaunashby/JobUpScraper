@@ -26,6 +26,7 @@ Here are some specific examples:
 * **Running all searches**: `job_scraper`
 * **Listing all configured searches**: Run `job_scraper --show` to list all configured searches and their parameters
 * **Running a single search**: Run `job_scraper -j 12345` to run just the search identified by the id `12345`
+* **Run a search; be persistent**: Run `job_scraper -e` to run a search and cache the results
 * **Debug mode**: Use `-d` to turn on the debug flag and show more detailed output
 
 ### License
