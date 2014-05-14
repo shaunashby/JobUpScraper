@@ -37,8 +37,8 @@ class TestSearch < MiniTest::Unit::TestCase
   end
 
   def test_search_post_input_text_cleaned
-    post = JobUp::Post.new(996104,"1 Mai 2014","IT-Support","› ABC & Cie S.A.","/www/fake/url","› Genève")
-    assert_equal(post.location,"Genève")
+    post = JobUp::Post.new(996104,"1 May 2014","IT-Support","› ABC & Cie S.A.","/www/fake/url","› Geneva")
+    assert_equal(post.location,"Geneva")
   end
 
   def test_search_run_method
