@@ -12,10 +12,9 @@
 #
 #
 #--------------------------------------------------------------------
+require 'job_up/version'
 
 module JobUp
-  VERSION='0.0.1'
-
   module JobSearch
     #
     #    COMPANYTYPES_ALL = 0
