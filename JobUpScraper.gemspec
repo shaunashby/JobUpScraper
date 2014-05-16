@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Shaun Ashby"]
   spec.email         = ["Shaun.Ashby@gmail.com"]
   spec.description   = %q{A gem for scraping a job site and massaging the results into digestible form.}
-  spec.summary       = %q{TODO}
+  spec.summary       = "JobUpScraper-#{spec.version}"
   spec.homepage      = ""
   spec.license       = "GPLv3"
 
