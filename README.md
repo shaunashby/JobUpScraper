@@ -1,10 +1,10 @@
 # JobUpScraper
 
-A tool for scraping job sites and massaging results into usable form.
+A gem for scraping a job site and massaging results into usable form.
 
 ## About
 
-JobUpScraper is a tool to grab a list of job announcements from [JobUp](http://www.jobup.ch) and put them 
+JobUpScraper is a gem to grab a list of job announcements from [JobUp](http://www.jobup.ch) and put them 
 into a form that is useful. The main motivation for this is the limited info provided by the user-configurable 
 `JobMailers` which insist on only listing a maximum of 10 new positions in each email notification: not much 
 help when there might be 60 or more posts to skim over.
@@ -13,13 +13,25 @@ This is my attempt at over-engineering something which is intrinsically very eas
 
 ## How to use it
 
-Run
+Add this line to your application's Gemfile:
+
+    `gem 'JobUpScraper'`
+
+And then execute:
+
+    `$ bundle`
+
+Or install it directly as:
+
+    `$ gem install JobUpScraper`
+
+## Usage
+
+Run the example scraper script to see full usage information:
 
 ```
 job_scraper -h
 ```
-
-for full usage information.
 
 Here are some specific examples:
 
