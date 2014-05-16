@@ -15,15 +15,15 @@ This is my attempt at over-engineering something which is intrinsically very eas
 
 Add this line to your application's Gemfile:
 
-    `gem 'JobUpScraper'`
+    gem 'JobUpScraper'
 
 And then execute:
 
-    `$ bundle`
+    $ bundle
 
 Or install it directly as:
 
-    `$ gem install JobUpScraper`
+    $ gem install JobUpScraper
 
 ## Usage
 
@@ -41,7 +41,7 @@ Here are some specific examples:
 * **Run a search; be persistent**: Run `job_scraper -e` to run a search and cache the results
 * **Debug mode**: Use `-d` to turn on the debug flag and show more detailed output
 
-### License
+## License
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
