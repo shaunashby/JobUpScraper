@@ -46,5 +46,20 @@ module JobUp
         puts p
       end
     end
+
+    def self.getJSON(base_url, query_params)
+      request = Page::Request.new(base_url)
+      request.get_page_content(query_params)
+      collection = PostCollection.new
+
+      # Get the pages:
+      request.pages.each do |page|
+        page.posts.each do |post|
+          collection << post
+        end
+      end
+
+      return collection.members.sort.reverse.to_json
+    end
   end
 end
