@@ -47,6 +47,20 @@ module JobUp
                      @location)
     end
 
+    def to_json(*a)
+      {
+        'json_class'   => self.class.name,
+        'data'         => [
+          :date        => @date,
+          :pid         => @pid,
+          :description => @description,
+          :enterprise  => @enterprise,
+          :location    => @location,
+          :url         => @url
+        ]
+      }.to_json(*a)
+    end
+
   end
 
   class PostCollection
