@@ -48,6 +48,8 @@ module JobUp
     end
 
     def self.getJSON(base_url, query_params)
+      require 'json' unless defined?(JSON::JSON_LOADED)
+
       request = Page::Request.new(base_url)
       request.get_page_content(query_params)
       collection = PostCollection.new
@@ -59,7 +61,7 @@ module JobUp
         end
       end
 
-      return collection.members.sort.reverse.to_json
+      return JSON.generate(collection.members.sort.reverse)
     end
   end
 end
