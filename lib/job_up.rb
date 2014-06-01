@@ -115,6 +115,16 @@ module JobUp
     attr_reader :jobsearches
     attr_reader :base_url
 
+    def to_json(*a)
+      {
+        'json_class'   => self.class.name,
+        'data'         => [
+          :jobsearches => @jobsearches,
+          :base_url    => @base_url,
+        ]
+      }.to_json(*a)
+    end
+
   end
 
 end
