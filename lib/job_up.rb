@@ -55,6 +55,17 @@ module JobUp
         return info
       end
 
+      def to_json(*a)
+        {
+          'json_class'   => self.class.name,
+          'data'         => [
+            :id           => @id,
+            :description  => @description,
+            :query_params => @query_params,
+          ]
+        }.to_json(*a)
+      end
+
       def to_s
         return sprintf("<#{self.object_id}>: Configured search ID %-8d            --> %s\n",@id, @description)
       end
