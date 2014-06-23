@@ -14,5 +14,3 @@ RSpec::Core::RakeTask.new(:spec) do |config|
 end
 
 task :default => :spec
-
-require 'rspec/autorun'
