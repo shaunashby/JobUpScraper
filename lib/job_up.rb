@@ -66,8 +66,8 @@ module JobUp
         }.to_json(*a)
       end
 
-      def to_s
-        return sprintf("<#{self.object_id}>: Configured search ID %-8d            --> %s\n",@id, @description)
+      def info
+        return sprintf("Configured search ID %-8d            --> %s\n",@id, @description)
       end
 
     end
