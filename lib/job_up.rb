@@ -48,7 +48,7 @@ module JobUp
       attr_reader :query_params
 
       def show
-        info = self.to_s
+        info = self.info
         info += sprintf("Query: %s\n",@query_params)
         info += sprintf("*************************************************************************************\n")
         info += sprintf("\n")
