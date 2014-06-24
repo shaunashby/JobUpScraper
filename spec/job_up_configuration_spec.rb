@@ -34,4 +34,8 @@ describe JobUp::Configuration do
     expect(@configuration.base_url).to eq("http://www.jobup.ch/search/joblist.asp?cmd=showresults")
   end
 
+  it "should respond to to_json" do
+    expect(@configuration).to respond_to(:to_json)
+  end
+
 end
