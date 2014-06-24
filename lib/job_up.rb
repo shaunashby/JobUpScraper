@@ -83,6 +83,7 @@ module JobUp
     def initialize(opts={})
       @options = opts
       @base_url = nil
+      @jobsearches = Array.new
       # Parse the supplied config file or use the default
       # if one given on command-line:
       @options['config'] ? parse(@options['config']) : parse()
@@ -97,7 +98,6 @@ module JobUp
 
         @base_url = conf['base_url']
 
-        @jobsearches = Array.new
         conf['jobsearch'].each do |jobsearch|
           @jobsearches << JobSearch::Criteria.new(jobsearch['id'],
                                                   jobsearch['description'],
