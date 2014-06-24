@@ -14,9 +14,12 @@
 #--------------------------------------------------------------------
 require File.expand_path '../spec_helper.rb', __FILE__
 
-describe "JobUpScraper application" do
+require 'job_up'
+require 'job_up/search'
 
-  it "should do something" do
+describe "JobUp scraper application" do
+
+  it "should return results from a search" do
     pending("not yet implemented")
     fail
   end
