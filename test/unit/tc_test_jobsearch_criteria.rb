@@ -18,8 +18,6 @@ require 'job_up'
 
 class TestJobUpSearchCriteria < MiniTest::Unit::TestCase
 
-  SEARCH_TEST_FILE=File.expand_path(File.dirname(__FILE__) + '/../files/test.yml')
-
   def setup
     @criteria = JobUp::JobSearch::Criteria.new(354346,
                                                "System Admin UNIX/Linux",
