@@ -37,4 +37,20 @@ describe JobUp::JobSearch::Criteria do
     expect(@criteria.query_params).to eq(wanted)
   end
 
+  it "should return the id" do
+    expect(@criteria.id).to eq(354346)
+  end
+
+  it "should return the description" do
+    expect(@criteria.description).to eq("System Admin UNIX/Linux")
+  end
+
+  it "should return the search criteria and query params string" do
+    expect(@criteria.show).to match(/&keywords=UNIX\/Linux\/Unix\/linux\/system%2Badmin\/monitoring\/puppet/)
+  end
+
+  it "should return the info string for the search criteria" do
+    expect(@criteria.info).to match(/Configured search ID 354346/)
+  end
+
 end
