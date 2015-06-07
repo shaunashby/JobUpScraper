@@ -18,7 +18,7 @@ module JobUp
     SEARCH_DIV_SEARCH_CONTENT_MAIN_TABLE_BODY_XPATH ='//*[@id="search_content"]/div/table/tbody'
 
     SEARCH_OL_JOBS_LIST_XPATH       = '//*[@id="jobs_list"]'
-    SEARCH_OL_JOBS_LIST_LINKS_XPATH = '//*[@id="jobs_list"]/li/div'
+    SEARCH_OL_JOBS_LIST_LINKS_XPATH = '//*[@id="jobs_list"]/li/span/div'
 
     SEARCH_LABEL_RESULT_COUNT_XPATH = '//*[@id="label_result_count"]'
 
