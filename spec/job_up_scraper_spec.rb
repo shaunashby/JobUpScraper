@@ -19,6 +19,15 @@ require 'job_up/search'
 
 describe "JobUp scraper application" do
 
+  before(:all) {
+    configuration = JobUp::Configuration.new()
+    # Base url for searches:
+    search_base_url = configuration.base_url()
+    job_search = configuration.jobsearches.first
+    JobUp::Search.run(search_base_url, job_search.query_params)
+
+  }
+
   it "should return results from a search" do
     pending("not yet implemented")
     fail
