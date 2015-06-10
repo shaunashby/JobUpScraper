@@ -4,7 +4,7 @@
 #____________________________________________________________________
 #
 # Author: Shaun Ashby <shaun@ashby.ch>
-# Created: 2014-05-05 13:05:15+0200 (Time-stamp: <2014-05-05 13:39:04 sashby>)
+# Created: 2014-05-05 13:05:15+0200
 # Revision: $Id$
 # Description: Constants used in document searches using XPath.
 #
