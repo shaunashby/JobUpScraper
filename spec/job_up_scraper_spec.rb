@@ -30,8 +30,7 @@ describe "JobUp scraper application" do
   }
 
   it "should return results from a search" do
-    @search.run
-    expect(@search.collection.length).to be > 0
+    expect(@collection.length).to be > 0
   end
 
 end
