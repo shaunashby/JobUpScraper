@@ -31,7 +31,7 @@ describe JobUp::Opts, '#parse' do
   end
 
   it "should parse version option" do
-    @argv=["-v"]
+    @argv=["-V"]
     options = JobUp::Opts.parse(@argv)
     expect(options["version"]).to be(true)
   end
