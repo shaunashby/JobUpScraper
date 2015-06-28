@@ -25,6 +25,8 @@ describe "JobUp scraper application" do
     search_base_url = configuration.base_url()
     job_search = configuration.jobsearches.first
     @search = JobUp::Search.new(search_base_url, job_search.query_params)
+    @search.run
+    @collection = @search.collection
   }
 
   it "should return results from a search" do
