@@ -36,6 +36,12 @@ describe JobUp::Opts, '#parse' do
     expect(options["version"]).to be(true)
   end
 
+  it "should parse verbose option" do
+    @argv=["-v"]
+    options = JobUp::Opts.parse(@argv)
+    expect(options["verbose"]).to be(true)
+  end
+
   it "should parse show option" do
     @argv=["-s"]
     options = JobUp::Opts.parse(@argv)
