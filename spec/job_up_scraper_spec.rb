@@ -33,4 +33,10 @@ describe "JobUp scraper application" do
     expect(@collection.length).to be > 0
   end
 
+  it "should return results from a search ordered by Post ID" do
+    latest_pid = @collection.first.pid
+    oldest_pid = @collection.last.pid
+    expect(latest_pid).to be > oldest_pid
+  end
+
 end
