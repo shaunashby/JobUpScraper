@@ -52,7 +52,9 @@ module JobUp
       end
     end
 
-    attr_reader :collection
+    def collection
+      @collection.members.sort.reverse
+    end
 
     def to_s
       s = sprintf("%s",@collection)
