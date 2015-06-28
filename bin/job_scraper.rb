@@ -26,6 +26,8 @@ require 'job_up/search'
 # Get the configuration:
 configuration = JobUp::Configuration.new(options)
 
+verbose = false
+
 # Base url for searches:
 search_base_url = configuration.base_url()
 
@@ -41,6 +43,11 @@ if options['show']
       puts job_search.show
   end
   exit 0
+end
+
+# Handle verbose option:
+if options['verbose']
+  verbose = true
 end
 
 # Check for the persistence flag. If this is set, data will be cached locally
@@ -60,7 +67,7 @@ if options['search_id']
     exit 1
   else
     searcher = JobUp::Search.new(search_base_url, job_search.first.query_params)
-    searcher.run()
+    searcher.run(verbose)
     puts "#{searcher}"
   end
 else
@@ -71,7 +78,7 @@ else
       puts job_search
     end
     searcher = JobUp::Search.new(search_base_url, job_search.query_params)
-    searcher.run()
+    searcher.run(verbose)
     puts "#{searcher}"
   end
 end

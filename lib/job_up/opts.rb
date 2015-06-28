@@ -47,8 +47,12 @@ module JobUp
           options['persist'] = p
         end
 
-        opts.on("-v", "--version", "Show version and exit.") do |v|
+        opts.on("-V", "--version", "Show version and exit.") do |v|
           options['version'] = true
+        end
+
+        opts.on("-v", "--verbose", "Be verbose.") do |v|
+          options['verbose'] = true
         end
 
         opts.on("-d", "--debug", "Run in debug mode.") do |v|

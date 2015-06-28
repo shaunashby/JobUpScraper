@@ -28,18 +28,20 @@ module JobUp
     end
 
     # Something for simply running a search:
-    def run()
+    def run(verbose=false)
       request = Page::Request.new(@base_url)
       request.get_page_content(@query_params)
       # Get the pages:
       @pages = request.pages
       main_page = @pages.first
-      printf("JobUp::Search: %d posts expected in %d pages\n",main_page.postcount,@pages.length)
 
       @collection = PostCollection.new
 
-      if !ENV['JUS_USE_CACHE'].nil? && !ENV['JUS_USE_CACHE'].empty?
-        puts "Going to be persistent...\n"
+      if verbose
+        printf("JobUp::Search: %d posts expected in %d pages\n",main_page.postcount,@pages.length)
+        if !ENV['JUS_USE_CACHE'].nil? && !ENV['JUS_USE_CACHE'].empty?
+          puts "Going to be persistent...\n"
+        end
       end
 
       # Loop over each page, get posts:
