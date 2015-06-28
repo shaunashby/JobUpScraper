@@ -20,16 +20,23 @@ require 'job_up/page/request'
 module JobUp
 
   class Search
+    def initialize(url, query_params)
+      @pages = nil
+      @base_url = url
+      @query_params = query_params
+      @collection = nil
+    end
+
     # Something for simply running a search:
-    def self.run(base_url, query_params)
-      request = Page::Request.new(base_url)
-      request.get_page_content(query_params)
+    def run()
+      request = Page::Request.new(@base_url)
+      request.get_page_content(@query_params)
       # Get the pages:
       @pages = request.pages
       main_page = @pages.first
       printf("JobUp::Search: %d posts expected in %d pages\n",main_page.postcount,@pages.length)
 
-      collection = PostCollection.new
+      @collection = PostCollection.new
 
       if !ENV['JUS_USE_CACHE'].nil? && !ENV['JUS_USE_CACHE'].empty?
         puts "Going to be persistent...\n"
@@ -38,26 +45,32 @@ module JobUp
       # Loop over each page, get posts:
       @pages.each do |page|
         page.posts.each do |post|
-          collection << post
+          @collection << post
         end
-      end
-      puts collection
-      collection.members.sort.reverse.each do |p|
-        puts p
       end
     end
 
-    def self.getJSON(base_url, query_params)
+    attr_reader :collection
+
+    def to_s
+      s = sprintf("%s",@collection)
+      @collection.members.sort.reverse.each do |p|
+        s += "#{p}"
+      end
+      return s
+    end
+
+    def getJSON()
       require 'json' unless defined?(JSON::JSON_LOADED)
 
-      request = Page::Request.new(base_url)
-      request.get_page_content(query_params)
-      collection = PostCollection.new
+      request = Page::Request.new(@base_url)
+      request.get_page_content(@query_params)
+      @collection = PostCollection.new
 
       # Get the pages:
       request.pages.each do |page|
         page.posts.each do |post|
-          collection << post
+          @collection << post
         end
       end
 

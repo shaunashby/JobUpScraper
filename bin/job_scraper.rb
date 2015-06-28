@@ -59,7 +59,9 @@ if options['search_id']
     $stderr.print("ERROR: Unable to find search with id #{search_id}\n")
     exit 1
   else
-    JobUp::Search.run(search_base_url, search.first.query_params)
+    searcher = JobUp::Search.new(search_base_url, job_search.first.query_params)
+    searcher.run()
+    puts "#{searcher}"
   end
 else
   puts "Running all searches....\n"
@@ -68,6 +70,8 @@ else
     if options['debug']
       puts job_search
     end
-    JobUp::Search.run(search_base_url, search.query_params)
+    searcher = JobUp::Search.new(search_base_url, job_search.query_params)
+    searcher.run()
+    puts "#{searcher}"
   end
 end
