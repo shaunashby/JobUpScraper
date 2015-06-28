@@ -78,7 +78,7 @@ module JobUp
         end
       end
 
-      return JSON.generate(collection.members.sort.reverse)
+      return JSON.generate(@collection.members.sort.reverse)
     end
   end
 end
